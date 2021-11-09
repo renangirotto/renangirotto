@@ -1,7 +1,7 @@
 # 🇧🇷 Oi, sou o Renan!
 ### 🧙 Um dev front-end aqui de São Paulo.
 
-> Atualmete trabalho na [e-Construmarket](https://www.e-construmarket.com.br/), no time de Marketplace.
+> Atualmete trabalho na [Construmarket](https://construmarket.com.br/), no time de Marketplace.
 
 ### 💾 Você pode me achar aqui:
 
@@ -18,7 +18,7 @@
 
 ### 🧙 A front-end developer from São Paulo, Brazil.
 
-> Currently I'm working at [e-Construmarket](https://www.e-construmarket.com.br/), on the Marketplace Team.
+> Currently I'm working at [Construmarket](https://construmarket.com.br/), on the Marketplace Team.
 
 ### 💾 You can find me here:
 
