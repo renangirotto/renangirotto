@@ -1,5 +1,9 @@
-<script setup></script>
+<script setup>
+import Home from "./layout/Home/index.vue";
+</script>
 
-<template>teste</template>
+<template>
+  <Home />
+</template>
 
 <style></style>
