@@ -5,6 +5,7 @@ import Tags from "./components/Tags.vue"
 import Timeline from "./components/Timeline.vue"
 
 import { EVENTS, EXPERIENCE, KNOWLEDGE, SECTIONS } from "./data";
+import { MOTION_SECTION_INITIAL, MOTION_SECTION_VISIBLE } from "./constants"
 
 const getTags = (tagsToGet) => {
   const filterKnowledge = KNOWLEDGE.filter(itemToFilter => {
@@ -39,7 +40,10 @@ const getExperienceWithTags = () => {
 <template>
   <Header />
   <main>
-    <Section 
+    <Section
+      v-motion
+      :initial="MOTION_SECTION_INITIAL"
+      :visibleOnce="MOTION_SECTION_VISIBLE"
       :title="SECTIONS.knowledge.title" 
       :subTitle="SECTIONS.knowledge.subTitle" 
       :color="SECTIONS.knowledge.color"
@@ -47,13 +51,20 @@ const getExperienceWithTags = () => {
       <Tags :tags="KNOWLEDGE" />
     </Section>
     <Section 
+      v-motion
+      :initial="MOTION_SECTION_INITIAL"
+      :visibleOnce="MOTION_SECTION_VISIBLE"
       :title="SECTIONS.educational.title" 
       :subTitle="SECTIONS.educational.subTitle" 
       :color="SECTIONS.educational.color"
     >
-      teste 2
+      Tecnólogo [2 Anos] <br />
+      Universidade Cruzeiro do Sul
     </Section>
     <Section 
+      v-motion
+      :initial="MOTION_SECTION_INITIAL"
+      :visibleOnce="MOTION_SECTION_VISIBLE"
       :title="SECTIONS.experience.title" 
       :subTitle="SECTIONS.experience.subTitle" 
       :color="SECTIONS.experience.color"
@@ -61,6 +72,9 @@ const getExperienceWithTags = () => {
       <Timeline :timeline="getExperienceWithTags()" color="orange" />
     </Section>
     <Section 
+      v-motion
+      :initial="MOTION_SECTION_INITIAL"
+      :visibleOnce="MOTION_SECTION_VISIBLE"
       :title="SECTIONS.events.title" 
       :subTitle="SECTIONS.events.subTitle" 
       :color="SECTIONS.events.color"

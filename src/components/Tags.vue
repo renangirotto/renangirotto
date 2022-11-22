@@ -1,4 +1,5 @@
 <script setup>
+import { MOTION_CONTENT_INITIAL, MOTION_CONTENT_VISIBLE } from "../constants"
 
 const props = defineProps({
   tags: []
@@ -7,7 +8,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <ul v-if="tags?.length" class="tags">
+  <ul 
+    v-if="tags?.length" 
+    class="tags"
+    v-motion
+    :initial="MOTION_CONTENT_INITIAL"
+    :visibleOnce="MOTION_CONTENT_VISIBLE"
+  >
     <li v-for="item in tags" class="tags__tag">{{item.name}}</li>
   </ul>
 </template>
