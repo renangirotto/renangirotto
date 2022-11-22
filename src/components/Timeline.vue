@@ -1,6 +1,8 @@
 <script setup>
 import { reactive } from 'vue';
 
+import { MOTION_CONTENT_INITIAL, MOTION_CONTENT_VISIBLE } from "../constants"
+
 const props = defineProps({
   timeline: [],
   color: String
@@ -14,7 +16,13 @@ const timelineClasses = reactive({
 
 <template>
   <ul :class="timelineClasses">
-    <li v-for="item in props.timeline" class="timeline__item">
+    <li 
+      v-for="item in props.timeline" 
+      class="timeline__item"
+      v-motion
+      :initial="MOTION_CONTENT_INITIAL"
+      :visibleOnce="MOTION_CONTENT_VISIBLE"
+    >
       <div v-if="item.year" class="timeline__year">
         {{item.year}}
       </div>
@@ -40,9 +48,60 @@ const timelineClasses = reactive({
 .timeline {
   &__item {
     position: relative;
+    padding-inline-end: 2.5rem;
+
+    &:before, &:after {
+      background: $color-current-line;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0.25rem;
+      height: calc(100% + 3.5rem);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
 
     &:not(:last-child) {
       margin-bottom: 3.5rem;
+    }
+
+    &:first-child {
+      &::before {
+        content: "";
+        display: block;
+        width: 2rem;
+        height: 0.25rem;
+        position: absolute;
+        top: 20px;
+        right: 0;
+      }
+
+      &::after {
+        height: calc(100% + 3.5rem - 20px);
+        position: absolute;
+        top: 20px;
+      }
+    }
+
+    &:last-child {
+      &::before {
+        content: "";
+        display: block;
+        width: 2rem;
+        height: 0.25rem;
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+      }
+
+      &::after {
+        height: calc(100% - 10px);
+        position: absolute;
+        top: 0;
+      }
     }
   }
 
@@ -84,14 +143,18 @@ const timelineClasses = reactive({
     }
   }
 
-  a {
-    text-decoration: none;
-  }
-
   &--orange {
     .timeline__year,
     .timeline__title {
       color: $color-orange;
+    }
+
+    .timeline__item {
+      &:first-child {
+        &:before, &::after {
+        background: $color-orange;
+      }
+      }
     }
   }
 
@@ -99,6 +162,14 @@ const timelineClasses = reactive({
     .timeline__year,
     .timeline__title {
       color: $color-red;
+    }
+
+    .timeline__item {
+      &:first-child {
+        &:before, &::after {
+        background: $color-red;
+      }
+      }
     }
   }
 }
