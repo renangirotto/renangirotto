@@ -32,6 +32,8 @@ const sectionClasses = reactive({
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-width: 56rem;
+  margin-inline: auto;
 
   &:not(:last-child) {
     margin-bottom: 7rem;
