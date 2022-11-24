@@ -1,4 +1,5 @@
 <script setup>
+import Menu from "./Menu.vue"
 
 const handleDisclaimerClick = () => {
   window.scroll({ top: window.innerHeight, behavior: "smooth"})
@@ -8,6 +9,7 @@ const handleDisclaimerClick = () => {
 
 <template>
   <header class="header">
+    <Menu />
     <div class="header__container">
       <h1 class="header__title"><span>Renan</span> Girotto</h1>
     </div>
