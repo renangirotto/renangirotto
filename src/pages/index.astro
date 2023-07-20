@@ -1,4 +1,7 @@
 ---
+import "@fontsource/abril-fatface";
+import "@fontsource/raleway";
+
 import "../styles/reset.css";
 ---
 
@@ -14,5 +17,206 @@ import "../styles/reset.css";
     <meta name="generator" content={Astro.generator} />
     <title>Renan Girotto</title>
   </head>
-  <body>teste</body>
+  <body>
+    <main class="main-content">
+      <section>
+        <div class="content-grid">
+          <div></div>
+          <div class="content-grid-item">
+            <div class="content-box-text">
+              <span class="content-text">Olá, sou o Renan</span>
+              <h1 class="content-title">
+                <span class="content-highlight is-aqua">
+                  <span>Desenvolvedor</span>
+                </span>
+                <span class="content-highlight is-aqua">
+                  <span>Front-end</span>
+                </span>
+              </h1>
+              <span class="content-text">aqui de São Paulo.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="content-grid">
+          <div class="content-grid-item">
+            <div class="content-box-text">
+              <span class="content-text">Atualmente na</span>
+              <h2 class="content-title">
+                <span class="content-highlight is-pink">
+                  <span>Red Ventures</span>
+                </span>
+                <span class="content-highlight is-pink">
+                  <span>Brasil</span>
+                </span>
+              </h2>
+              <span class="content-text"
+                >com uma stack <br />baseada em React.</span
+              >
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </section>
+      <section>
+        <div class="content-grid">
+          <div></div>
+          <div class="content-grid-item">
+            <div class="content-box-text">
+              <span class="content-text">Aos poucos</span>
+              <h2 class="content-title">
+                <span class="content-highlight is-blue">
+                  <span>Criando</span>
+                </span>
+                <span class="content-highlight is-blue">
+                  <span>um Blog</span>
+                </span>
+              </h2>
+              <span class="content-text"
+                >que você pode <br />
+                conferir aqui.</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="content-grid">
+          <div class="content-grid-item">
+            <div class="content-box-text">
+              <span class="content-text">E mantendo alguns</span>
+              <h2 class="content-title">
+                <span class="content-highlight is-cherry">
+                  <span>Projetos</span>
+                </span>
+                <span class="content-highlight is-cherry">
+                  <span>pessoais</span>
+                </span>
+              </h2>
+              <span class="content-text"
+                >para estudo e impacto <br />
+                no meu dia-a-dia.</span
+              >
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
+
+<style>
+  :root {
+    --text-white: #fefefe;
+    --background: #24252e;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .main-content {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--background);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 32px;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin-inline: auto;
+  }
+
+  .content-grid-item {
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      justify-content: flex-end;
+    }
+  }
+
+  .content-box-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-white);
+  }
+
+  .content-text {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+
+  .content-title {
+    font-family: "Abril Fatface", sans-serif;
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .content-highlight {
+    display: block;
+    width: fit-content;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 90%;
+      height: 4px;
+      position: absolute;
+      left: -4px;
+      bottom: 8px;
+      z-index: 0;
+    }
+
+    > span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:last-child {
+      &::before {
+        width: 72%;
+      }
+    }
+
+    &.is-aqua {
+      &::before {
+        background: #00e8c6;
+      }
+    }
+
+    &.is-pink {
+      &::before {
+        background: #ff00aa;
+      }
+    }
+
+    &.is-blue {
+      &::before {
+        background: #00b0ff;
+      }
+    }
+
+    &.is-cherry {
+      &::before {
+        background: #f92672;
+      }
+    }
+  }
+</style>
