@@ -2,6 +2,8 @@
 import "@fontsource/abril-fatface";
 import "@fontsource/raleway";
 
+import AnimatedCode from "../components/AnimatedCode.astro";
+
 import "../styles/reset.css";
 ---
 
@@ -21,9 +23,11 @@ import "../styles/reset.css";
     <main class="main-content">
       <section>
         <div class="content-grid">
-          <div></div>
           <div class="content-grid-item">
-            <div class="content-box-text">
+            <AnimatedCode />
+          </div>
+          <div class="content-grid-item">
+            <div class="content-box-text animate-content">
               <span class="content-text">Olá, sou o Renan</span>
               <h1 class="content-title">
                 <span class="content-highlight is-aqua">
@@ -33,7 +37,7 @@ import "../styles/reset.css";
                   <span>Front-end</span>
                 </span>
               </h1>
-              <span class="content-text">aqui de São Paulo.</span>
+              <span class="content-text">@Red Ventures Brasil.</span>
             </div>
           </div>
         </div>
@@ -42,7 +46,7 @@ import "../styles/reset.css";
         <div class="content-grid">
           <div class="content-grid-item">
             <div class="content-box-text">
-              <span class="content-text">Atualmente na</span>
+              <span class="content-text">Trabalhando na</span>
               <h2 class="content-title">
                 <span class="content-highlight is-pink">
                   <span>Red Ventures</span>
@@ -129,7 +133,7 @@ import "../styles/reset.css";
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 0px 32px;
+    gap: 0px 100px;
     width: 100%;
     max-width: 1440px;
     min-height: 100vh;
@@ -172,16 +176,18 @@ import "../styles/reset.css";
     display: block;
     width: fit-content;
     position: relative;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 
     &::before {
       content: "";
       display: block;
       width: 90%;
-      height: 4px;
+      height: 12px;
       position: absolute;
       left: -4px;
       bottom: 8px;
       z-index: 0;
+      opacity: 0.9;
     }
 
     > span {
@@ -217,6 +223,92 @@ import "../styles/reset.css";
       &::before {
         background: #f92672;
       }
+    }
+  }
+
+  .animate-content {
+    color: var(--background);
+    animation: animate-box 1s linear 1.5s forwards;
+
+    & .content-text {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      opacity: 0;
+      animation: animate-text 0.5s linear 2.85s forwards;
+
+      &:last-child {
+        animation-delay: 2.95s;
+      }
+    }
+
+    & .content-title {
+      font-size: 3.75rem;
+    }
+
+    & .content-highlight {
+      opacity: 0;
+      animation: animate-title 0.5s linear 2.5s forwards;
+
+      &::before {
+        width: 0%;
+        animation: animate-highlight 0.5s linear 3s forwards;
+      }
+
+      &:last-child {
+        animation: animate-title 0.5s linear 2.6s forwards;
+
+        &::before {
+          width: 0%;
+          animation: animate-highlight-small 0.5s linear 3.1s forwards;
+        }
+      }
+    }
+  }
+
+  @keyframes animate-box {
+    0% {
+      color: var(--background);
+    }
+    100% {
+      color: var(--text-white);
+    }
+  }
+
+  @keyframes animate-text {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes animate-title {
+    0% {
+      transform: translateY(8px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes animate-highlight {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 90%;
+    }
+  }
+
+  @keyframes animate-highlight-small {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 72%;
     }
   }
 </style>
