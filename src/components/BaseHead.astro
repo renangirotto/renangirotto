@@ -1,0 +1,28 @@
+---
+import "@styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  // canonicalURL?: URL | string;
+  // image?: string;
+}
+
+const title = Astro.props.title;
+---
+
+<!-- Config meta tags -->
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
+
+<!-- Main meta tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<!-- <meta name="description" content="Astro description" /> -->
+<meta name="generator" content={Astro.generator} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />

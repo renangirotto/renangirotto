@@ -1,0 +1,23 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import type { Props as BaseHeadProps } from "@components/BaseHead.astro";
+
+interface Props {
+  seo?: BaseHeadProps;
+}
+
+const { seo } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <BaseHead {...seo} />
+    <slot name="head" />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
