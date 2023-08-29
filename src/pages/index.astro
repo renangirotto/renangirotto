@@ -2,36 +2,34 @@
 import "@fontsource-variable/nunito";
 import "@fontsource-variable/raleway";
 
-import "../styles/reset.css";
+import LayoutPage from "@layouts/Page.astro";
+
+const seo = {
+  title: "Renan Girotto | Dev. Front-end",
+  description:
+    "This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.",
+};
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <meta name="generator" content={Astro.generator} />
-    <title>Renan Girotto</title>
-  </head>
-  <body>
-    <main>
-      <section></section>
-    </main>
-  </body>
-</html>
+<LayoutPage seo={seo}>
+  <section>
+    <div class="grid-container">
+      <h1 class="title">Olá, sou o Renan</h1>
+    </div>
+  </section>
+</LayoutPage>
 
 <style>
-  :root {
-    --text-white: #fefefe;
-    --background: #24252e;
+  .grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
-  html {
-    scroll-behavior: smooth;
-    font-family: "Raleway Variable", sans-serif;
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 </style>
