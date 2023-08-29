@@ -10,9 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource/abril-fatface": "^5.0.5",
-    "@fontsource/raleway": "^5.0.5",
-    "@fontsource/space-mono": "^5.0.5",
+    "@fontsource-variable/nunito": "^5.0.9",
+    "@fontsource-variable/raleway": "^5.0.9",
     "astro": "^2.8.5"
   }
 }
