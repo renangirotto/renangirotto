@@ -1,0 +1,29 @@
+html {
+  color-scheme: dark;
+
+  &.is-theme-dark {
+    color-scheme: dark;
+  }
+
+  &.is-theme-light {
+    color-scheme: light;
+  }
+}
+
+body {
+  container-name: main-container;
+  container-type: inline-size;
+  min-height: 100dvh;
+  padding-block: 44px 144px;
+  padding-inline: 16px;
+  background: light-dark(
+    var(--color-light-background-100),
+    var(--color-dark-selection-100)
+  );
+}
+
+.container {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+}

@@ -1,0 +1,83 @@
+---
+import { Moon as IconMoon, Sun as IconSun } from "lucide-astro";
+---
+
+<button
+  aria-label="Mudar tema para claro"
+  data-ui-theme-button="true"
+  {...Astro.props}
+>
+  <i class="is-sun"><IconSun /></i>
+  <i class="is-moon"><IconMoon /></i>
+</button>
+
+<style>
+  html.is-theme-dark {
+    button {
+      .is-moon {
+        display: none;
+      }
+    }
+  }
+
+  html.is-theme-light {
+    button {
+      .is-sun {
+        display: none;
+      }
+    }
+  }
+</style>
+
+<script>
+  const THEMES = {
+    dark: {
+      ariaLabel: "Mudar tema para claro",
+      cssClass: "is-theme-dark",
+    },
+    light: {
+      ariaLabel: "Mudar tema para escuro",
+      cssClass: "is-theme-light",
+    },
+  };
+
+  const buttons = document.querySelectorAll("[data-ui-theme-button]");
+  const htmlElement = document.querySelector("html");
+
+  const initialThemeFromStorage = localStorage.getItem("rg-theme");
+
+  if (initialThemeFromStorage && initialThemeFromStorage !== "") {
+    const initialTargetTheme = (
+      initialThemeFromStorage === "light" ? "light" : "dark"
+    ) as "dark" | "light";
+
+    htmlElement?.removeAttribute("class");
+    htmlElement?.classList.add(
+      THEMES[initialTargetTheme as "dark" | "light"].cssClass
+    );
+    localStorage.setItem("rg-theme", initialTargetTheme);
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      _changeTheme(button as HTMLButtonElement);
+    });
+  });
+
+  const _changeTheme = (buttonInstance: HTMLButtonElement) => {
+    const themeFromStorage = localStorage.getItem("rg-theme");
+
+    const targetTheme = (themeFromStorage === "light" ? "dark" : "light") as
+      | "dark"
+      | "light";
+
+    buttonInstance.ariaLabel = THEMES[targetTheme].ariaLabel;
+    buttonInstance.setAttribute("data-ui-theme-button", targetTheme);
+
+    htmlElement?.removeAttribute("class");
+    htmlElement?.classList.add(
+      THEMES[targetTheme as "dark" | "light"].cssClass
+    );
+    localStorage.setItem("rg-theme", targetTheme);
+  };
+</script>

@@ -10,8 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.6",
-    "@astrojs/check": "^0.9.3",
-    "typescript": "^5.6.2"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^3.1.8",
+    "@astrojs/rss": "^4.0.8",
+    "@astrojs/sitemap": "^3.2.0",
+    "@fontsource-variable/nunito-sans": "^5.1.0",
+    "@fontsource-variable/outfit": "^5.1.0",
+    "astro": "^4.16.2",
+    "lucide-astro": "^0.453.0",
+    "typescript": "^5.6.3"
   }
 }

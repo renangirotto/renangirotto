@@ -1,0 +1,75 @@
+---
+import content from "../constants/carrer.json";
+
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <section class="container">
+        <ul class="list-jobs">
+          {
+            content.map((job) => (
+              <li>
+                <p>{job.year}</p>
+                <h3>{job.company}</h3>
+                <h4>{job.role}</h4>
+                <ul>
+                  {job.achievements.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+                <p>
+                  <strong>Tecnologias:</strong> {job.technologies}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  .list-jobs {
+    list-style: none;
+    margin-block-start: 40px;
+
+    h3 {
+      font-size: 2rem;
+      color: light-dark(
+        var(--color-light-pink-100),
+        var(--color-dark-pink-100)
+      );
+    }
+
+    h4 {
+      font-size: 1.25rem;
+    }
+
+    > li {
+      &:not(:last-child) {
+        margin-block-end: 72px;
+      }
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    ul {
+      padding-inline-start: 24px;
+      margin-block: 24px;
+    }
+  }
+</style>

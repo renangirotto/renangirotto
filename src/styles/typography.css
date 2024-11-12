@@ -1,0 +1,17 @@
+body {
+  font-family: "Outfit Variable", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: light-dark(
+    var(--color-light-foreground-100),
+    var(--color-dark-foreground-100)
+  );
+}
+
+a,
+button {
+  color: light-dark(
+    var(--color-light-foreground-100),
+    var(--color-dark-foreground-100)
+  );
+}

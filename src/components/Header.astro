@@ -1,0 +1,86 @@
+---
+import { Github as IconGithub, Linkedin as IconLinkedin } from "lucide-astro";
+
+import constants from "../constants/index";
+
+import ButtonTheme from "./ButtonTheme.astro";
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header class="container">
+  <nav>
+    <a class="title" href="/">tudo bem?</a>
+    <div class="links is-internal">
+      <HeaderLink href="/blog">blog</HeaderLink>
+      <HeaderLink href="/carreira">carreira</HeaderLink>
+    </div>
+    <div class="links is-social">
+      <a
+        aria-label="Veja meus projetos no Github"
+        href={constants.links.social.github}
+        target="_blank"
+      >
+        <IconGithub />
+      </a>
+      <a
+        aria-label="Fale comigo pelo Linkedin"
+        href={constants.links.social.linkedin}
+        target="_blank"
+      >
+        <IconLinkedin />
+      </a>
+      <ButtonTheme />
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    &:where(:not(:last-child)) {
+      margin-block-end: 64px;
+
+      @container main-container (width >= 1024px) {
+        margin-block-end: 96px;
+      }
+    }
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a,
+    button {
+      padding: 0;
+      text-decoration: none;
+      background: transparent;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  .links {
+    display: inherit;
+    align-items: inherit;
+
+    &.is-internal {
+      gap: 40px;
+    }
+
+    &.is-social {
+      gap: 16px;
+
+      a {
+        height: 24px;
+      }
+    }
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+</style>

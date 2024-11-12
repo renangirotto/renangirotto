@@ -1,0 +1,56 @@
+[
+  {
+    "achievements": [
+      "Atuei com time de mais de 40 desenvolvedores, auxiliando na criação de bibliotecas de impacto em todos os projetos.",
+      "Auxiliei a criação de design system, com boas práticas de acessibilidade e impacto em de 14 projetos de parcerios.",
+      "Atuei no desenvolvimento de ferramentas de email marketing voltada para grandes fluxos de disparos. (+milhão de emails por mês).",
+      "Desenvolvi aplicações em estrutura de monorepo voltado para escalabilidade ágil e fácil CI/CD.",
+      "Trouxe boas práticas documentação de software e processos internos que foram bem recebidos pelo time de técnologia.",
+      "Realizei orientação de carreira, com prática de 1-1s e acompanhamento de evolução de orientados.",
+      "Organizei e participei de grupos de discussão de técnologia, voltados a criar cultura de boas práticas na empresa, uso de tecnologias e também organizei eventos como Code in the Dark e Hackathons."
+    ],
+    "company": "Red Ventures",
+    "role": "Desenvolvedor Front-end Senior",
+    "technologies": "React, Next, Typescript, Vite, Node e SCSS.",
+    "year": "2022 - atual"
+  },
+  {
+    "achievements": [
+      "Atuei em projetos de e-commerce voltados para a área de construção civil.",
+      "Auxiliei na migração e atualização de código em versões muito desatualizadas do Angular.",
+      "Redesenhei junto ao time de design a experiência de navegação principal da aplicação, alcançando bons resultados na experiência de venda.",
+      "Atuei de maneira estratégica na organização e aplicação de melhores práticas de SEO, trazendo melhor resultado de buscas organicas.",
+      "Desenvolvi fluxos complexos de compras em lote buscando facilitar a aquisição de materiais para obras completas.",
+      "Realizei orientação de pares para melhores práticas de organização do time nas sprints e documentação de software."
+    ],
+    "company": "Construmarket",
+    "role": "Desenvolvedor Front-end Pleno",
+    "technologies": "Angular, Typescript, SCSS, Azure.",
+    "year": "2021 - 2021"
+  },
+  {
+    "achievements": [
+      "Atuei no design e desenvolvimento de dashboars de dados para empresas na área de logistica de mercadorias de alimento.",
+      "Atuei no deisgn e desenvolvimento de plataformas de e-commerce para serviços de vídeo com celebridades. (como memmo.me)",
+      "Atuei no design e desenvolvimento de ferramentas para relatórios interativos voltados para práticas de exercício e saúde mental.",
+      "Criei documentações de design no Figma buscando padronizar os projetos da empresa e facilitar escalabilidade."
+    ],
+    "company": "Hive Solutions Cloud System",
+    "role": "Desenvolvedor Front-end Pleno / Designer",
+    "technologies": "Vue, Jquery, SCSS, PHP.",
+    "year": "2020 - 2020"
+  },
+  {
+    "achievements": [
+      "Desenvolvi landing pages para divulgação de produtos, eventos, shows e lançamentos de plataformas.",
+      "Atuei na criação de peças de e-mail otimizadas com MJML.",
+      "Auxiliei no desenvolvimento de aplicações web para companhias de hidro elétricas e aerpoportos.",
+      "Atuei no desenvolvimento de aplicações B2C no ramo de veídulos.",
+      "Realizei o design e desenvolvimento inicial de aplicações de intranet para bancos parceiros."
+    ],
+    "company": "Tesla Tecnologia e Comunicação",
+    "role": "Desenvolvedor Front-end Júnior",
+    "technologies": "Javascript, Jquery, LESS, SCSS.",
+    "year": "2017 - 2020"
+  }
+]
