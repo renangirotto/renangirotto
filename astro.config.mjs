@@ -6,7 +6,14 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://renangirotto.github.io",
   base: "renangirotto",
   integrations: [mdx(), sitemap()],
+  site: "https://renangirotto.github.io",
+  vite: {
+    resolve: {
+      alias: {
+        "@": new URL("./src", import.meta.url).pathname,
+      },
+    },
+  },
 });
