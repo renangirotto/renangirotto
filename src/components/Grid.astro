@@ -1,0 +1,46 @@
+<div class="grid">
+  <slot />
+</div>
+
+<style>
+  .grid {
+    container-name: main-grid;
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: calc(50% - 16px) 34px calc(50% - 34px - 16px);
+    grid-template-rows: auto 224px auto 264px auto;
+    gap: 16px 16px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "name name name"
+      "github linkedin linkedin"
+      "company company company"
+      "pdf pdf switch"
+      "blog blog blog";
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+
+    @container main-container (width >= 768px) {
+      grid-template-columns: calc(50% - 16px) 34px calc(50% - 34px - 16px);
+      grid-template-rows: 224px auto auto 224px 140px;
+      grid-template-areas:
+        "name name github"
+        "name name linkedin"
+        "company company company"
+        "pdf blog blog"
+        "switch blog blog";
+      max-width: 768px;
+    }
+
+    @container main-container (width >= 1024px) {
+      grid-template-columns: 274px 86px 172px 36px 274px;
+      grid-template-rows: 224px 224px 224px;
+      grid-template-areas:
+        "name name name blog blog"
+        "pdf github github blog blog"
+        "company company switch switch linkedin";
+      max-width: 906px;
+    }
+  }
+</style>
