@@ -14,7 +14,7 @@ body {
   container-name: main-container;
   container-type: inline-size;
   min-height: 100dvh;
-  padding-block: 44px 144px;
+  padding-block: 44px 96px;
   padding-inline: 16px;
   background: light-dark(
     var(--color-light-background-100),
