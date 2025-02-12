@@ -3,7 +3,7 @@ import { Github as IconGithub, Linkedin as IconLinkedin } from "lucide-astro";
 
 import ButtonTheme from "@/components/ButtonTheme.astro";
 import HeaderLink from "@/components/HeaderLink.astro";
-import constants from "@/constants/index";
+import { LINKS } from "@/consts";
 
 const BASE_URL = import.meta.env.BASE_URL;
 ---
@@ -18,14 +18,14 @@ const BASE_URL = import.meta.env.BASE_URL;
     <div class="links is-social">
       <a
         aria-label="Veja meus projetos no Github"
-        href={constants.links.social.github}
+        href={LINKS.social.github}
         target="_blank"
       >
         <IconGithub />
       </a>
       <a
         aria-label="Fale comigo pelo Linkedin"
-        href={constants.links.social.linkedin}
+        href={LINKS.social.linkedin}
         target="_blank"
       >
         <IconLinkedin />
@@ -81,7 +81,9 @@ const BASE_URL = import.meta.env.BASE_URL;
   }
 
   .title {
-    font-size: 1.5rem;
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 2.5rem;
     font-weight: 600;
+    line-height: 0.8;
   }
 </style>
