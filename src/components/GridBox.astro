@@ -1,0 +1,131 @@
+---
+import {
+  Download as IconDownload,
+  Github as IconGithub,
+  ExternalLink as IconExternalLink,
+  Linkedin as IconLinkedin,
+} from "lucide-astro";
+
+const ElementTag = Astro.props.href ? "a" : "div";
+---
+
+<ElementTag
+  class:list={["grid-box", Astro.props.href && "is-link"]}
+  href={Astro.props.href}
+  target={Astro.props.href && "_blank"}
+  {...Astro.props}
+>
+  <slot />
+
+  {
+    Astro.props.href && (
+      <span class="grid-box-link-icon">
+        <IconExternalLink />
+      </span>
+    )
+  }
+</ElementTag>
+
+<style>
+  .grid-box {
+    visibility: hidden;
+    padding-block: 24px;
+    padding-inline: 32px;
+    border-radius: 16px;
+    background: light-dark(
+      var(--color-light-background-200),
+      var(--color-dark-selection-200)
+    );
+    opacity: 0;
+    transform: translateY(8px);
+
+    animation-name: animate-areas-fade-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+
+    &:where(.is-link) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: light-dark(
+        var(--color-light-background-100),
+        var(--color-dark-foreground-100)
+      );
+      background: light-dark(
+        var(--color-light-comment-100),
+        var(--color-dark-comment-100)
+      );
+
+      * {
+        pointer-events: none;
+      }
+
+      svg {
+        width: 80px;
+        height: 80px;
+
+        @container main-grid (width >= 768px) {
+          width: 110px;
+          height: 110px;
+        }
+      }
+    }
+
+    p {
+      font-size: var(--_text-font-size, 1rem);
+
+      &:not(:last-of-type) {
+        margin-block-end: 16px;
+      }
+    }
+
+    .marker {
+      display: inline-flex;
+      position: relative;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: var(--_marker-font-size, 1rem);
+      font-weight: 400;
+      color: light-dark(
+        var(--color-light-pink-100),
+        var(--color-dark-pink-100)
+      );
+      line-height: 1;
+      transform: rotate(-3deg);
+
+      &:is(a) {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .grid-box-link-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    inset: auto auto 16px 16px;
+    color: light-dark(
+      var(--color-light-background-100),
+      var(--color-dark-foreground-100)
+    );
+
+    svg {
+      width: 100%;
+      height: 100%;
+      stroke-width: 3;
+    }
+  }
+
+  @keyframes animate-areas-fade-in {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+</style>

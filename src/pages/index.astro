@@ -2,7 +2,6 @@
 import {
   Download as IconDownload,
   Github as IconGithub,
-  Link as IconLink,
   Linkedin as IconLinkedin,
 } from "lucide-astro";
 
@@ -11,9 +10,9 @@ import { Image } from "astro:assets";
 import BaseHead from "@/components/BaseHead.astro";
 import ButtonTheme from "@/components/ButtonTheme.astro";
 import Grid from "@/components/Grid.astro";
+import GridBox from "@/components/GridBox.astro";
 import Header from "@/components/Header.astro";
-import constants from "@/constants/index";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { LINKS, SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
 const BASE_URL = import.meta.env.BASE_URL;
 ---
@@ -28,28 +27,32 @@ const BASE_URL = import.meta.env.BASE_URL;
     <main>
       <Grid>
         <div class="grid-area" data-ui-area="name">
-          <p>
-            olá, sou o <span>Renan</span>, desenvolvedor front-end criando
-            aplicações web a mais de 7 anos.
-          </p>
-          <figure aria-hidden="true">
-            <Image
-              alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
-              class="is-first-glass"
-              height="288"
-              loading="eager"
-              src={`${BASE_URL}/images/avatar-glass-open.png`}
-              width="263"
-            />
-            <Image
-              alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
-              class="is-second-glass"
-              height="288"
-              loading="eager"
-              src=`${BASE_URL}/images/avatar-glass-close.png`
-              width="263"
-            />
-          </figure>
+          <GridBox>
+            <p>
+              olá, sou o <span class="marker">Renan</span>, desenvolvedor
+              front-end criando aplicações web a mais de 7 anos.
+            </p>
+          </GridBox>
+          <div>
+            <figure aria-hidden="true">
+              <Image
+                alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
+                class="is-first-glass"
+                height="288"
+                loading="eager"
+                src={`${BASE_URL}/images/avatar-glass-open.png`}
+                width="263"
+              />
+              <Image
+                alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
+                class="is-second-glass"
+                height="288"
+                loading="eager"
+                src=`${BASE_URL}/images/avatar-glass-close.png`
+                width="263"
+              />
+            </figure>
+          </div>
         </div>
 
         <a href="#" class="grid-area" data-ui-area="pdf">
@@ -59,26 +62,19 @@ const BASE_URL = import.meta.env.BASE_URL;
           </p>
         </a>
 
-        <a
-          class="grid-area is-highlight"
-          data-ui-area="github"
-          href={constants.links.social.github}
-          target="_blank"
-        >
+        <GridBox data-ui-grid-area="github" href={LINKS.social.github}>
           <IconGithub />
-          <span>
-            <IconLink />
-          </span>
-        </a>
+        </GridBox>
 
-        <div class="grid-area" data-ui-area="company">
+        <GridBox data-ui-grid-area="carrer">
           <p>
-            atualmente na <span>Red Ventures</span>, <br />como desenvolvedor
-            senior.
+            atuando como <span class="marker">Front-end</span>
+            <span class="marker">Senior</span> no incrível time da <a
+              class="marker"
+              href={LINKS.companies.redventures}>Red Ventures</a
+            >.
           </p>
-          <p>trabalhando com React, Next, Typrescript, Node e SCSS.</p>
-          <a href={`${BASE_URL}/carreira/`}>veja minha carreria</a>
-        </div>
+        </GridBox>
 
         <ButtonTheme class="grid-area" data-ui-area="switch" />
 
@@ -101,28 +97,102 @@ const BASE_URL = import.meta.env.BASE_URL;
           </figure>
         </div>
 
-        <a
-          class="grid-area is-highlight"
-          data-ui-area="linkedin"
-          href={constants.links.social.linkedin}
-          target="_blank"
-        >
+        <GridBox data-ui-grid-area="linkedin" href={LINKS.social.linkedin}>
           <IconLinkedin />
-          <span>
-            <IconLink />
-          </span>
-        </a>
+        </GridBox>
       </Grid>
     </main>
   </body>
 </html>
 
 <style>
+  body {
+    [data-ui-grid-area="carrer"] {
+      --_animation-delay-carrer: 0.8s;
+      --_marker-font-size: 2.5rem;
+      --_text-font-size: 1.5rem;
+
+      grid-area: carrer;
+      display: flex;
+      align-items: center;
+      position: relative;
+      animation-delay: var(--_animation-delay-carrer);
+
+      @container main-grid (width >= 768px) {
+        --_animation-delay-carrer: 0.8s;
+      }
+
+      @container main-grid (width >= 906px) {
+        --_animation-delay-carrer: 1.1s;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 34px solid transparent;
+        border-right: 34px solid transparent;
+        border-bottom: 34px solid
+          light-dark(
+            var(--color-light-background-100),
+            var(--color-dark-selection-100)
+          );
+        position: absolute;
+        inset: auto -23px -6px auto;
+        transform: rotate(135deg);
+        z-index: 1;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        inset: auto 0 0 auto;
+        z-index: 0;
+        border-start-start-radius: 16px;
+        background: light-dark(
+          var(--color-light-comment-100),
+          var(--color-dark-comment-100)
+        );
+      }
+    }
+
+    [data-ui-grid-area="github"] {
+      --_animation-delay-github: 0.6s;
+
+      grid-area: github;
+      animation-delay: var(--_animation-delay-github);
+
+      @container main-grid (width >= 768px) {
+        --_animation-delay-github: 0.6s;
+      }
+
+      @container main-grid (width >= 906px) {
+        --_animation-delay-github: 0.8s;
+      }
+    }
+
+    [data-ui-grid-area="linkedin"] {
+      --_animation-delay-linkedin: 0.7s;
+
+      grid-area: linkedin;
+      animation-delay: var(--_animation-delay-linkedin);
+
+      @container main-grid (width >= 768px) {
+        --_animation-delay-linkedin: 0.7s;
+      }
+
+      @container main-grid (width >= 906px) {
+        --_animation-delay-linkedin: 0.9s;
+      }
+    }
+  }
   .grid-area {
     --_animation-delay-blog: 1.1s;
-    --_animation-delay-company: 0.8s;
-    --_animation-delay-github: 0.6s;
-    --_animation-delay-linkedin: 0.7s;
+
     --_animation-delay-name: 0.5s;
     --_animation-delay-pdf: 1s;
     --_animation-delay-switch: 0.9s;
@@ -144,9 +214,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 
     @container main-grid (width >= 768px) {
       --_animation-delay-blog: 0.9s;
-      --_animation-delay-company: 0.8s;
-      --_animation-delay-github: 0.6s;
-      --_animation-delay-linkedin: 0.7s;
+
       --_animation-delay-name: 0.5s;
       --_animation-delay-pdf: 1s;
       --_animation-delay-switch: 1.1s;
@@ -154,9 +222,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 
     @container main-grid (width >= 906px) {
       --_animation-delay-blog: 0.6s;
-      --_animation-delay-company: 1.1s;
-      --_animation-delay-github: 0.8s;
-      --_animation-delay-linkedin: 0.9s;
+
       --_animation-delay-name: 0.5s;
       --_animation-delay-pdf: 0.7s;
       --_animation-delay-switch: 1s;
@@ -224,14 +290,21 @@ const BASE_URL = import.meta.env.BASE_URL;
     }
 
     &:where([data-ui-area="name"]) {
+      --_p-font-size: 20px;
+
       grid-area: name;
+      display: flex;
       position: relative;
       padding-block-end: 0px;
 
       animation-delay: var(--_animation-delay-name);
 
+      > div {
+        max-width: 50%;
+      }
+
       @container main-grid (width >= 906px) {
-        display: initial;
+        /* display: initial; */
         padding-block-end: 32px;
       }
 
@@ -244,14 +317,10 @@ const BASE_URL = import.meta.env.BASE_URL;
       }
 
       p {
+        --_span-font-size: 40px;
+
         &:first-child {
-          --_span-font-size: 1.5rem;
-
           margin-block-end: 16px;
-        }
-
-        &:last-child {
-          --_span-font-size: 1.125rem;
         }
       }
 
@@ -289,40 +358,6 @@ const BASE_URL = import.meta.env.BASE_URL;
       svg {
         width: 44px;
         height: 44px;
-      }
-    }
-
-    &:where([data-ui-area="github"]) {
-      grid-area: github;
-      animation-delay: var(--_animation-delay-github);
-    }
-
-    &:where([data-ui-area="company"]) {
-      grid-area: company;
-      animation-delay: var(--_animation-delay-company);
-
-      a {
-        display: block;
-        text-align: right;
-      }
-
-      br {
-        display: none;
-
-        @container main-grid (width >= 906px) {
-          display: initial;
-        }
-      }
-
-      p {
-        margin-block-end: 16px;
-
-        &:first-child {
-          --_p-font-size: 1.25rem;
-          --_span-font-size: 1.25rem;
-
-          margin-block-end: 8px;
-        }
       }
     }
 
@@ -383,11 +418,6 @@ const BASE_URL = import.meta.env.BASE_URL;
       p {
         margin-block-end: 8px;
       }
-    }
-
-    &:where([data-ui-area="linkedin"]) {
-      grid-area: linkedin;
-      animation-delay: var(--_animation-delay-linkedin);
     }
 
     a {
