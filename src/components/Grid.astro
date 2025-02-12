@@ -14,7 +14,7 @@
     grid-template-areas:
       "name name name"
       "github linkedin linkedin"
-      "company company company"
+      "carrer carrer carrer"
       "pdf pdf switch"
       "blog blog blog";
     width: 100%;
@@ -27,7 +27,7 @@
       grid-template-areas:
         "name name github"
         "name name linkedin"
-        "company company company"
+        "carrer carrer carrer"
         "pdf blog blog"
         "switch blog blog";
       max-width: 768px;
@@ -35,11 +35,11 @@
 
     @container main-container (width >= 1024px) {
       grid-template-columns: 274px 86px 172px 36px 274px;
-      grid-template-rows: 224px 224px 224px;
+      grid-template-rows: 224px 224px 180px;
       grid-template-areas:
         "name name name blog blog"
         "pdf github github blog blog"
-        "company company switch switch linkedin";
+        "carrer carrer switch switch linkedin";
       max-width: 906px;
     }
   }
