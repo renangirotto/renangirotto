@@ -26,8 +26,8 @@ const BASE_URL = import.meta.env.BASE_URL;
       <Grid>
         <GridBox data-ui-grid-area="name">
           <p>
-            sou o <span class="marker">Renan!</span> desenvolvo aplicações web nos
-            últimos <span class="marker">7 anos</span>.
+            <span class="marker">sou o Renan!</span>
+            <br /> e crio aplicações para a web há 7 anos.
           </p>
           <figure aria-hidden="true">
             <img
@@ -58,8 +58,8 @@ const BASE_URL = import.meta.env.BASE_URL;
 
         <GridBox data-ui-grid-area="carrer">
           <p>
-            atuando como <span class="marker">Front-end</span>
-            <span class="marker">Senior</span> no incrível time da <a
+            atuando como <span class="marker">front-end</span>
+            <span class="marker">senior</span> no incrível time da <a
               class="marker"
               href={LINKS.companies.redventures}
               target="_blank">Red Ventures</a
@@ -69,11 +69,14 @@ const BASE_URL = import.meta.env.BASE_URL;
 
         <ButtonTheme class="grid-area" data-ui-area="switch" />
 
-        <div class="grid-area" data-ui-area="blog">
+        <GridBox data-ui-grid-area="blog">
           <p>
-            compartilhando opiniões e estudos <br />em meu <span>blog</span>.
+            escrevendo sobre minhas experiências <a
+              class="marker"
+              href={`${BASE_URL}/blog`}>aqui no blog</a
+            >.
           </p>
-          <a href={`${BASE_URL}/blog`}>veja meus posts</a>
+
           <figure aria-hidden="true">
             <img
               alt="Um desenho meu deitado em uma mesa com chamas ao meu redor."
@@ -86,7 +89,7 @@ const BASE_URL = import.meta.env.BASE_URL;
               src=`${BASE_URL}/images/avatar-table-two.png`
             />
           </figure>
-        </div>
+        </GridBox>
 
         <GridBox data-ui-grid-area="linkedin" href={LINKS.social.linkedin}>
           <IconLinkedin />
@@ -98,6 +101,10 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 <style>
   body {
+    figure {
+      overflow: hidden;
+    }
+
     [data-ui-grid-area="carrer"] {
       --_animation-delay-carrer: 0.8s;
       --_marker-font-size: 2.5rem;
@@ -151,6 +158,94 @@ const BASE_URL = import.meta.env.BASE_URL;
       }
     }
 
+    [data-ui-grid-area="blog"] {
+      --_animation-delay-blog: 1.1s;
+      --_marker-font-size: 2.8rem;
+      --_text-font-size: 1.5rem;
+
+      grid-area: blog;
+      position: relative;
+      text-align: right;
+      animation-delay: var(--_animation-delay-blog);
+
+      @container main-grid (width >= 768px) {
+        --_animation-delay-blog: 0.9s;
+      }
+
+      @container main-grid (width >= 906px) {
+        --_animation-delay-blog: 0.6s;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 34px solid transparent;
+        border-right: 34px solid transparent;
+        border-bottom: 34px solid
+          light-dark(
+            var(--color-light-background-100),
+            var(--color-dark-selection-100)
+          );
+        position: absolute;
+        inset: -6px auto auto -23px;
+        transform: rotate(315deg);
+        z-index: 1;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 47px;
+        height: 47px;
+        position: absolute;
+        inset: 0 auto auto 0;
+        z-index: 0;
+        border-end-end-radius: 16px;
+        background: light-dark(
+          var(--color-light-comment-100),
+          var(--color-dark-comment-100)
+        );
+      }
+
+      figure {
+        width: 354px;
+        height: 230px;
+        position: relative;
+        margin-block-start: 32px;
+        margin-inline: auto;
+
+        @container main-grid (width >= 768px) {
+          position: absolute;
+          inset: auto 16px 8px auto;
+          margin-block-start: 0px;
+          margin-inline: 0px;
+        }
+
+        @container main-grid (width >= 906px) {
+          inset: auto -14px 12px auto;
+        }
+
+        img {
+          position: absolute;
+          inset: 0;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+
+          &.is-first-table {
+            animation-name: animate-image-table-one;
+            animation-duration: 4s;
+          }
+
+          &.is-second-table {
+            animation-name: animate-image-table-two;
+            animation-duration: 4s;
+          }
+        }
+      }
+    }
+
     [data-ui-grid-area="github"] {
       --_animation-delay-github: 0.6s;
 
@@ -183,8 +278,8 @@ const BASE_URL = import.meta.env.BASE_URL;
 
     [data-ui-grid-area="name"] {
       --_animation-delay-name: 0.5s;
-      --_marker-font-size: 2.5rem;
-      --_text-font-size: 1.3rem;
+      --_marker-font-size: 3rem;
+      --_text-font-size: 1.4rem;
 
       grid-area: name;
       display: flex;
@@ -235,8 +330,6 @@ const BASE_URL = import.meta.env.BASE_URL;
     }
   }
   .grid-area {
-    --_animation-delay-blog: 1.1s;
-
     --_animation-delay-pdf: 1s;
     --_animation-delay-switch: 0.9s;
 
@@ -256,20 +349,13 @@ const BASE_URL = import.meta.env.BASE_URL;
     animation-fill-mode: forwards;
 
     @container main-grid (width >= 768px) {
-      --_animation-delay-blog: 0.9s;
-
       --_animation-delay-pdf: 1s;
       --_animation-delay-switch: 1.1s;
     }
 
     @container main-grid (width >= 906px) {
-      --_animation-delay-blog: 0.6s;
-
       --_animation-delay-pdf: 0.7s;
       --_animation-delay-switch: 1s;
-    }
-
-    &:where([data-ui-area="name"]) {
     }
 
     &:where([data-ui-area="pdf"]) {
@@ -301,119 +387,6 @@ const BASE_URL = import.meta.env.BASE_URL;
         width: 56px;
         height: 56px;
       }
-    }
-
-    &:where([data-ui-area="blog"]) {
-      --_p-font-size: 1.5rem;
-      --_span-font-size: 1.5rem;
-
-      grid-area: blog;
-      position: relative;
-      text-align: right;
-      animation-delay: var(--_animation-delay-blog);
-
-      br {
-        display: none;
-
-        @container main-grid (width >= 906px) {
-          display: initial;
-        }
-      }
-
-      figure {
-        width: 354px;
-        height: 230px;
-        position: relative;
-        margin-block-start: 32px;
-        margin-inline: auto;
-
-        @container main-grid (width >= 768px) {
-          position: absolute;
-          inset: auto 16px 8px auto;
-          margin-block-start: 0px;
-          margin-inline: 0px;
-        }
-
-        @container main-grid (width >= 906px) {
-          inset: auto -14px 12px auto;
-        }
-
-        img {
-          position: absolute;
-          inset: 0;
-        }
-      }
-
-      p {
-        margin-block-end: 8px;
-      }
-    }
-
-    a {
-      color: light-dark(
-        var(--color-light-purple-100),
-        var(--color-dark-purple-100)
-      );
-      text-decoration: none;
-
-      &:where(:hover) {
-        text-decoration: underline;
-      }
-    }
-
-    figure {
-      overflow: hidden;
-
-      img {
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-
-        &.is-first-table {
-          animation-name: animate-image-table-one;
-          animation-duration: 4s;
-        }
-
-        &.is-second-table {
-          animation-name: animate-image-table-two;
-          animation-duration: 4s;
-        }
-
-        &.is-first-glass {
-          animation-name: animate-image-glass-one;
-          animation-duration: 7s;
-        }
-
-        &.is-second-glass {
-          animation-name: animate-image-glass-two;
-          animation-duration: 7s;
-        }
-      }
-    }
-
-    p {
-      font-size: var(--_p-font-size, 1rem);
-    }
-
-    span {
-      font-size: var(--_span-font-size, 1rem);
-      font-weight: 600;
-      color: light-dark(
-        var(--color-light-pink-100),
-        var(--color-dark-pink-100)
-      );
-    }
-  }
-
-  @keyframes animate-areas-fade-in {
-    from {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0px);
     }
   }
 
