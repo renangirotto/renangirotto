@@ -5,14 +5,12 @@ import {
   Linkedin as IconLinkedin,
 } from "lucide-astro";
 
-import { Image } from "astro:assets";
-
 import BaseHead from "@/components/BaseHead.astro";
 import ButtonTheme from "@/components/ButtonTheme.astro";
 import Grid from "@/components/Grid.astro";
 import GridBox from "@/components/GridBox.astro";
 import Header from "@/components/Header.astro";
-import { LINKS, SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { LINKS, SITE_DESCRIPTION } from "@/consts";
 
 const BASE_URL = import.meta.env.BASE_URL;
 ---
@@ -20,40 +18,32 @@ const BASE_URL = import.meta.env.BASE_URL;
 <!doctype html>
 <html lang="pt-br" class="is-theme-dark">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title="Opa! Tudo bem?" description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
     <main>
       <Grid>
-        <div class="grid-area" data-ui-area="name">
-          <GridBox>
-            <p>
-              olá, sou o <span class="marker">Renan</span>, desenvolvedor
-              front-end criando aplicações web a mais de 7 anos.
-            </p>
-          </GridBox>
-          <div>
-            <figure aria-hidden="true">
-              <Image
-                alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
-                class="is-first-glass"
-                height="288"
-                loading="eager"
-                src={`${BASE_URL}/images/avatar-glass-open.png`}
-                width="263"
-              />
-              <Image
-                alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
-                class="is-second-glass"
-                height="288"
-                loading="eager"
-                src=`${BASE_URL}/images/avatar-glass-close.png`
-                width="263"
-              />
-            </figure>
-          </div>
-        </div>
+        <GridBox data-ui-grid-area="name">
+          <p>
+            sou o <span class="marker">Renan!</span> desenvolvo aplicações web nos
+            últimos <span class="marker">7 anos</span>.
+          </p>
+          <figure aria-hidden="true">
+            <img
+              alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
+              class="is-first-glass"
+              loading="eager"
+              src={`${BASE_URL}/images/avatar-glass-open.png`}
+            />
+            <img
+              alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
+              class="is-second-glass"
+              loading="eager"
+              src={`${BASE_URL}/images/avatar-glass-close.png`}
+            />
+          </figure>
+        </GridBox>
 
         <a href="#" class="grid-area" data-ui-area="pdf">
           <IconDownload />
@@ -71,7 +61,8 @@ const BASE_URL = import.meta.env.BASE_URL;
             atuando como <span class="marker">Front-end</span>
             <span class="marker">Senior</span> no incrível time da <a
               class="marker"
-              href={LINKS.companies.redventures}>Red Ventures</a
+              href={LINKS.companies.redventures}
+              target="_blank">Red Ventures</a
             >.
           </p>
         </GridBox>
@@ -189,11 +180,63 @@ const BASE_URL = import.meta.env.BASE_URL;
         --_animation-delay-linkedin: 0.9s;
       }
     }
+
+    [data-ui-grid-area="name"] {
+      --_animation-delay-name: 0.5s;
+      --_marker-font-size: 2.5rem;
+      --_text-font-size: 1.3rem;
+
+      grid-area: name;
+      display: flex;
+      align-items: center;
+      animation-delay: var(--_animation-delay-name);
+
+      @container main-grid (width >= 768px) {
+        --_animation-delay-name: 0.5s;
+      }
+
+      @container main-grid (width >= 906px) {
+        --_animation-delay-name: 0.5s;
+      }
+
+      p {
+        max-width: calc(100% - 16px - 263px);
+      }
+
+      figure {
+        width: 263px;
+        height: 288px;
+        position: relative;
+
+        @container main-grid (width >= 906px) {
+          position: absolute;
+          inset: auto 24px 0 auto;
+          margin-inline: 0;
+        }
+
+        img {
+          height: 100%;
+          position: absolute;
+          inset: 0;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+
+          &.is-first-glass {
+            animation-name: animate-image-glass-one;
+            animation-duration: 7s;
+          }
+
+          &.is-second-glass {
+            animation-name: animate-image-glass-two;
+            animation-duration: 7s;
+          }
+        }
+      }
+    }
   }
   .grid-area {
     --_animation-delay-blog: 1.1s;
 
-    --_animation-delay-name: 0.5s;
     --_animation-delay-pdf: 1s;
     --_animation-delay-switch: 0.9s;
 
@@ -215,7 +258,6 @@ const BASE_URL = import.meta.env.BASE_URL;
     @container main-grid (width >= 768px) {
       --_animation-delay-blog: 0.9s;
 
-      --_animation-delay-name: 0.5s;
       --_animation-delay-pdf: 1s;
       --_animation-delay-switch: 1.1s;
     }
@@ -223,124 +265,11 @@ const BASE_URL = import.meta.env.BASE_URL;
     @container main-grid (width >= 906px) {
       --_animation-delay-blog: 0.6s;
 
-      --_animation-delay-name: 0.5s;
       --_animation-delay-pdf: 0.7s;
       --_animation-delay-switch: 1s;
     }
 
-    &:where(:is(a)) {
-      text-decoration: none;
-
-      &:where(:hover) {
-        text-decoration: underline;
-      }
-    }
-
-    &.is-highlight {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-block: 16px;
-      padding-inline: 16px;
-      position: relative;
-      color: light-dark(
-        var(--color-light-background-100),
-        var(--color-dark-foreground-100)
-      );
-      background: light-dark(
-        var(--color-light-comment-100),
-        var(--color-dark-comment-100)
-      );
-
-      span {
-        pointer-events: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        position: absolute;
-        inset: auto auto 16px 16px;
-        color: light-dark(
-          var(--color-light-comment-100),
-          var(--color-dark-comment-100)
-        );
-        background: light-dark(
-          var(--color-light-background-100),
-          var(--color-dark-foreground-100)
-        );
-
-        svg {
-          width: 20px;
-          height: 20px;
-          stroke-width: 3;
-        }
-      }
-
-      svg {
-        width: 80px;
-        height: 80px;
-
-        @container main-grid (width >= 768px) {
-          width: 110px;
-          height: 110px;
-        }
-      }
-    }
-
     &:where([data-ui-area="name"]) {
-      --_p-font-size: 20px;
-
-      grid-area: name;
-      display: flex;
-      position: relative;
-      padding-block-end: 0px;
-
-      animation-delay: var(--_animation-delay-name);
-
-      > div {
-        max-width: 50%;
-      }
-
-      @container main-grid (width >= 906px) {
-        /* display: initial; */
-        padding-block-end: 32px;
-      }
-
-      br {
-        display: none;
-
-        @container main-grid (width >= 906px) {
-          display: initial;
-        }
-      }
-
-      p {
-        --_span-font-size: 40px;
-
-        &:first-child {
-          margin-block-end: 16px;
-        }
-      }
-
-      figure {
-        width: 263px;
-        height: 288px;
-        position: relative;
-        margin-inline: auto;
-
-        @container main-grid (width >= 906px) {
-          position: absolute;
-          inset: auto 24px 0 auto;
-          margin-inline: 0;
-        }
-
-        img {
-          position: absolute;
-          inset: 0;
-        }
-      }
     }
 
     &:where([data-ui-area="pdf"]) {
