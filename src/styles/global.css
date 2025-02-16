@@ -20,7 +20,12 @@ body {
     var(--color-light-background-100),
     var(--color-dark-selection-100)
   );
+  transition: margin-inline 0.25s ease-in-out;
   overflow-x: hidden;
+
+  &:has(#dialog-menu-mobile[open]) {
+    margin-inline: -240px 240px;
+  }
 }
 
 .container {

@@ -1,23 +1,29 @@
 ---
-import { Github as IconGithub, Linkedin as IconLinkedin } from "lucide-astro";
+import {
+  ExternalLink as IconExternalLink,
+  Github as IconGithub,
+  Linkedin as IconLinkedin,
+  Menu as IconMenu,
+  X as IconX,
+} from "lucide-astro";
 
 import ButtonTheme from "@/components/ButtonTheme.astro";
 import HeaderLink from "@/components/HeaderLink.astro";
-import { LINKS } from "@/consts";
-
-const BASE_URL = import.meta.env.BASE_URL;
+import HeaderLinkMobile from "@/components/HeaderLinkMobile.astro";
+import { LINKS, ROUTES } from "@/consts";
 ---
 
 <header class="container">
   <nav>
-    <a class="title" href={BASE_URL}>tudo bem?</a>
+    <a class="title" href={ROUTES.home}>tudo bem?</a>
     <div class="links is-internal">
-      <HeaderLink href="/blog">blog</HeaderLink>
-      <HeaderLink href="/carreira">carreira</HeaderLink>
+      <HeaderLink href={ROUTES.blog}>blog</HeaderLink>
+      <HeaderLink href={ROUTES.carrer}>carreira</HeaderLink>
     </div>
     <div class="links is-social">
       <a
         aria-label="Veja meus projetos no Github"
+        class="social"
         href={LINKS.social.github}
         target="_blank"
       >
@@ -25,65 +31,178 @@ const BASE_URL = import.meta.env.BASE_URL;
       </a>
       <a
         aria-label="Fale comigo pelo Linkedin"
+        class="social"
         href={LINKS.social.linkedin}
         target="_blank"
       >
         <IconLinkedin />
       </a>
       <ButtonTheme />
+      <button
+        aria-label="Abrir menu de navegação"
+        class="action-menu-open"
+        id="action-menu-open"
+      >
+        <IconMenu />
+      </button>
     </div>
   </nav>
-</header>
+  <dialog class="dialog" id="dialog-menu-mobile">
+    <button
+      aria-label="Fechar menu de navegação"
+      class="action-menu-close"
+      id="action-menu-close"
+    >
+      fechar <IconX />
+    </button>
+    <HeaderLinkMobile href={ROUTES.blog} isMobile="true">
+      blog
+    </HeaderLinkMobile>
+    <HeaderLinkMobile href={ROUTES.carrer} isMobile="true">
+      carreira
+    </HeaderLinkMobile>
+    <HeaderLinkMobile href={LINKS.social.github} isMobile="true">
+      github <IconExternalLink />
+    </HeaderLinkMobile>
+    <HeaderLinkMobile href={LINKS.social.linkedin} isMobile="true">
+      linkedin <IconExternalLink />
+    </HeaderLinkMobile>
+    <HeaderLinkMobile href={LINKS.social.bluesky} isMobile="true">
+      bluesky <IconExternalLink />
+    </HeaderLinkMobile>
+  </dialog>
 
-<style>
-  header {
-    &:where(:not(:last-child)) {
-      margin-block-end: 64px;
+  <script>
+    const actionMenuOpen = document.getElementById("action-menu-open");
+    const actionMenuClose = document.getElementById("action-menu-close");
+    const dialog = document.getElementById("dialog-menu-mobile");
 
-      @container main-container (width >= 1024px) {
-        margin-block-end: 96px;
+    actionMenuOpen?.addEventListener("click", () => {
+      (dialog as HTMLDialogElement)?.showModal();
+    });
+
+    actionMenuClose?.addEventListener("click", () => {
+      (dialog as HTMLDialogElement)?.close();
+    });
+  </script>
+
+  <style>
+    header {
+      &:where(:not(:last-child)) {
+        margin-block-end: 64px;
+
+        @container main-container (width >= 906px) {
+          margin-block-end: 96px;
+        }
       }
     }
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    a,
-    button {
-      padding: 0;
-      text-decoration: none;
+      a,
+      button {
+        padding: 0;
+        text-decoration: none;
+        background: transparent;
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+    .action-menu-open {
+      @container main-container (width >= 906px) {
+        display: none;
+      }
+    }
+
+    .action-menu-close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      padding-block: 8px;
+      padding-inline: 12px;
+      border-radius: 2px;
+      margin-inline-start: auto;
+      font-size: 1.125rem;
       background: transparent;
+      transition: background 0.25s ease-in-out;
+
+      &:not(:last-child) {
+        margin-block-end: 24px;
+      }
+
+      &:where(:hover) {
+        background: light-dark(
+          var(--color-light-purple-400),
+          var(--color-dark-purple-400)
+        );
+      }
 
       svg {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
+        stroke-width: 2;
       }
     }
-  }
 
-  .links {
-    display: inherit;
-    align-items: inherit;
+    .dialog {
+      width: 240px;
+      height: 100dvh;
+      max-height: 100dvh;
+      padding-block: 24px;
+      padding-inline: 24px;
+      border: none;
+      inset-inline-start: auto;
+      background: var(--color-dark-purple-100);
 
-    &.is-internal {
-      gap: 40px;
-    }
-
-    &.is-social {
-      gap: 16px;
-
-      a {
-        height: 24px;
+      > a {
+        &:not(:last-child) {
+          margin-block-end: 4px;
+        }
       }
     }
-  }
 
-  .title {
-    font-family: "Nanum Pen Script", cursive;
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 0.8;
-  }
-</style>
+    .links {
+      display: inherit;
+      align-items: inherit;
+
+      &.is-internal {
+        display: none;
+        gap: 40px;
+
+        @container main-container (width >= 906px) {
+          display: inherit;
+        }
+      }
+
+      &.is-social {
+        gap: 16px;
+
+        a {
+          height: 24px;
+        }
+      }
+
+      .social {
+        display: none;
+
+        @container main-container (width >= 906px) {
+          display: initial;
+        }
+      }
+    }
+
+    .title {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 0.8;
+    }
+  </style>
+</header>
