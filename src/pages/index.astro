@@ -248,6 +248,21 @@ const BASE_URL = import.meta.env.BASE_URL;
       }
     }
 
+    [data-ui-grid-area="bluesky"] {
+      --_animation-delay-bluesky: 1s;
+
+      grid-area: bluesky;
+      animation-delay: var(--_animation-delay-bluesky);
+
+      @container main-grid (width >= 768px) {
+        --_animation-delay-bluesky: 1s;
+      }
+
+      @container main-grid (width >= 906px) {
+        --_animation-delay-bluesky: 0.9s;
+      }
+    }
+
     [data-ui-grid-area="github"] {
       --_animation-delay-github: 0.6s;
 
@@ -328,21 +343,6 @@ const BASE_URL = import.meta.env.BASE_URL;
             animation-duration: 7s;
           }
         }
-      }
-    }
-
-    [data-ui-grid-area="bluesky"] {
-      --_animation-delay-bluesky: 1s;
-
-      grid-area: bluesky;
-      animation-delay: var(--_animation-delay-bluesky);
-
-      @container main-grid (width >= 768px) {
-        --_animation-delay-bluesky: 1s;
-      }
-
-      @container main-grid (width >= 906px) {
-        --_animation-delay-bluesky: 0.9s;
       }
     }
 
