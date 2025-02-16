@@ -20,6 +20,7 @@ body {
     var(--color-light-background-100),
     var(--color-dark-selection-100)
   );
+  overflow-x: hidden;
 }
 
 .container {
