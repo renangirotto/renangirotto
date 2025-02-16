@@ -2,7 +2,7 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { ROUTES, SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
 import { getCollection } from "astro:content";
 
@@ -23,7 +23,7 @@ const posts = (await getCollection("blog")).sort(
         {
           posts.map((post) => (
             <li>
-              <a href={`/blog/${post.slug}/`}>
+              <a href={`${ROUTES.blog}${post.slug}/`}>
                 <h3 class="title">{post.data.title}</h3>
                 <p class="time">
                   <FormattedDate date={post.data.pubDate} />

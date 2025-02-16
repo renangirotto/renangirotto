@@ -6,12 +6,7 @@ const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname;
 ---
 
-<a
-  href={href}
-  data-teste={`${pathname}-${subpath}-${href}`}
-  class:list={[{ active: isActive }]}
-  {...props}
->
+<a href={href} class:list={[{ active: isActive }]} {...props}>
   <slot />
 </a>
 <style>

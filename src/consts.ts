@@ -15,8 +15,8 @@ export const LINKS = {
 
 export const ROUTES = {
   home: BASE_URL,
-  blog: `${BASE_URL}/blog`,
-  carrer: `${BASE_URL}/carreira`,
+  blog: `${BASE_URL}/blog/`,
+  carrer: `${BASE_URL}/carreira/`,
 }
 
 export const SITE_TITLE = "Renan Girotto";

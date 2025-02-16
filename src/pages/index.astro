@@ -10,7 +10,7 @@ import ButtonTheme from "@/components/ButtonTheme.astro";
 import Grid from "@/components/Grid.astro";
 import GridBox from "@/components/GridBox.astro";
 import Header from "@/components/Header.astro";
-import { LINKS, SITE_DESCRIPTION } from "@/consts";
+import { LINKS, ROUTES, SITE_DESCRIPTION } from "@/consts";
 
 const BASE_URL = import.meta.env.BASE_URL;
 ---
@@ -72,7 +72,7 @@ const BASE_URL = import.meta.env.BASE_URL;
           <p>
             escrevendo sobre minhas experiências <a
               class="marker"
-              href={`${BASE_URL}/blog`}>aqui no blog</a
+              href={ROUTES.blog}>aqui no blog</a
             >.
           </p>
 
