@@ -24,8 +24,8 @@ const ElementTag = Astro.props.href ? "a" : "div";
 <style>
   .grid-box {
     visibility: hidden;
-    padding-block: 24px;
-    padding-inline: 32px;
+    padding-block: var(--_box-padding-block, 24px);
+    padding-inline: var(--_box-padding-inline, 32px);
     border-radius: 16px;
     background: light-dark(
       var(--color-light-background-200),
