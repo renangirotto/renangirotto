@@ -130,6 +130,10 @@ import { LINKS, ROUTES } from "@/consts";
       border-radius: 2px;
       margin-inline-start: auto;
       font-size: 1.125rem;
+      color: light-dark(
+        var(--color-light-background-100),
+        var(--color-dark-foreground-100)
+      );
       background: transparent;
       transition: background 0.25s ease-in-out;
 
@@ -139,7 +143,7 @@ import { LINKS, ROUTES } from "@/consts";
 
       &:where(:hover) {
         background: light-dark(
-          var(--color-light-purple-400),
+          var(--color-light-purple-200),
           var(--color-dark-purple-400)
         );
       }
@@ -159,7 +163,10 @@ import { LINKS, ROUTES } from "@/consts";
       padding-inline: 24px;
       border: none;
       inset-inline-start: auto;
-      background: var(--color-dark-purple-100);
+      background: light-dark(
+        var(--color-light-purple-100),
+        var(--color-dark-purple-100)
+      );
 
       > a {
         &:not(:last-child) {

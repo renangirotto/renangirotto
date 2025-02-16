@@ -16,6 +16,10 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
   a {
     display: block;
     font-size: 1.5rem;
+    color: light-dark(
+      var(--color-light-background-100),
+      var(--color-dark-foreground-100)
+    );
     text-decoration: none;
 
     span {
@@ -38,7 +42,7 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
     &:where(:hover):not(.active) {
       span {
         background: light-dark(
-          var(--color-light-purple-400),
+          var(--color-light-purple-200),
           var(--color-dark-purple-400)
         );
       }
@@ -55,7 +59,7 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
     span {
       margin-inline-start: 0px;
       background: light-dark(
-        var(--color-light-purple-400),
+        var(--color-light-purple-200),
         var(--color-dark-purple-400)
       );
     }
