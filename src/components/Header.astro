@@ -156,6 +156,11 @@ import { LINKS, ROUTES } from "@/consts";
     }
 
     .dialog {
+      /* UPDATE: --open / syncs styles with dialog state */
+      --open: 0;
+      /* READ: --closed / exposed for styling convenience */
+      --closed: calc(1 - var(--open));
+
       width: 240px;
       height: 100dvh;
       max-height: 100dvh;
@@ -167,6 +172,32 @@ import { LINKS, ROUTES } from "@/consts";
         var(--color-light-purple-100),
         var(--color-dark-purple-100)
       );
+      transform: translateX(calc(var(--closed) * 100%));
+
+      &[open] {
+        --open: 1;
+      }
+
+      &::backdrop {
+        background: #232323b2;
+      }
+
+      &,
+      &::backdrop {
+        /* This works like a conditional statement */
+        --duration: calc((var(--open) * 0.25s) + (var(--closed) * 0.25s));
+
+        transition: all var(--duration) ease-in-out allow-discrete;
+        /* opacity: var(--open); */
+      }
+
+      @starting-style {
+        --open: 1;
+
+        &[open] {
+          --open: 0;
+        }
+      }
 
       > a {
         &:not(:last-child) {
