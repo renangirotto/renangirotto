@@ -1,8 +1,8 @@
 # Opa! Tudo bem?
 
-Sou o Renan, desenvolvedor front-end criando aplicações web desde 2017. Hoje atuando como desenvolvedor senior na [Red Ventures Brasil]().
+Sou o Renan, desenvolvedor front-end criando aplicações web desde 2017. Hoje atuando como desenvolvedor senior na [R2 Ventures](https://www.linkedin.com/company/r2br/).
 
-Escrevo um pouco das minhas experências e estudos aqui no [meu blog]().
+Escrevo um pouco das minhas experências e estudos aqui no [meu blog](https://renangirotto.dev/blog/).
 
 ##  Desenvolvo com / tenho interesse em:
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
