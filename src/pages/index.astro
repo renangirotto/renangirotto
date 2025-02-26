@@ -12,8 +12,6 @@ import GridBox from "@/components/GridBox.astro";
 import Header from "@/components/Header.astro";
 import { LINKS, ROUTES, SITE_DESCRIPTION } from "@/consts";
 
-const BASE_URL = import.meta.env.BASE_URL;
-
 const year = new Date().getFullYear() - 2017;
 ---
 
@@ -36,13 +34,13 @@ const year = new Date().getFullYear() - 2017;
               alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
               class="is-first-glass"
               loading="eager"
-              src={`${BASE_URL}/images/avatar-glass-open.png`}
+              src={`/images/avatar-glass-open.png`}
             />
             <img
               alt="Um desenho meu segurando meus óculos, os meus olhos não estão no resto mas sim presos as lentes dos óculos."
               class="is-second-glass"
               loading="eager"
-              src={`${BASE_URL}/images/avatar-glass-close.png`}
+              src={`/images/avatar-glass-close.png`}
             />
           </figure>
         </GridBox>
@@ -60,8 +58,8 @@ const year = new Date().getFullYear() - 2017;
             atuando como <span class="marker">front-end</span>
             <span class="marker">senior</span> no incrível time da <a
               class="marker"
-              href={LINKS.companies.redventures}
-              target="_blank">Red Ventures</a
+              href={LINKS.companies.r2ventures}
+              target="_blank">R2 Ventures</a
             >.
           </p>
         </GridBox>
@@ -82,12 +80,12 @@ const year = new Date().getFullYear() - 2017;
             <img
               alt="Um desenho meu deitado em uma mesa com chamas ao meu redor."
               class="is-first-table"
-              src=`${BASE_URL}/images/avatar-table-one.png`
+              src=`/images/avatar-table-one.png`
             />
             <img
               alt="Um desenho meu deitado em uma mesa com chamas ao meu redor."
               class="is-second-table"
-              src=`${BASE_URL}/images/avatar-table-two.png`
+              src=`/images/avatar-table-two.png`
             />
           </figure>
         </GridBox>
