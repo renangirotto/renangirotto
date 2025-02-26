@@ -240,12 +240,12 @@ const year = new Date().getFullYear() - 2017;
 
           &.is-first-table {
             animation-name: animate-image-table-one;
-            animation-duration: 4s;
+            animation-duration: 2s;
           }
 
           &.is-second-table {
             animation-name: animate-image-table-two;
-            animation-duration: 4s;
+            animation-duration: 2s;
           }
         }
       }
@@ -356,11 +356,6 @@ const year = new Date().getFullYear() - 2017;
           animation-iteration-count: infinite;
           animation-timing-function: linear;
 
-          &.is-first-glass {
-            animation-name: animate-image-glass-one;
-            animation-duration: 7s;
-          }
-
           &.is-second-glass {
             animation-name: animate-image-glass-two;
             animation-duration: 7s;
@@ -402,176 +397,99 @@ const year = new Date().getFullYear() - 2017;
   }
 
   @keyframes animate-image-table-one {
-    0% {
-      display: block;
+    0%, 50% {
+    opacity: 1;
+    visibility: visible;
     }
-    24% {
-      display: block;
-    }
-    25% {
-      display: none;
-    }
-    49% {
-      display: none;
-    }
-    50% {
-      display: block;
-    }
-    74% {
-      display: block;
-    }
-    75% {
-      display: none;
-    }
-    99% {
-      display: none;
-    }
-    100% {
-      display: block;
+    50.01%, 100% {
+      opacity: 0;
+      visibility: hidden;
     }
   }
 
   @keyframes animate-image-table-two {
-    0% {
-      display: none;
+    0%, 50% {
+      opacity: 0;
+      visibility: hidden;
     }
-    24% {
-      display: none;
-    }
-    25% {
-      display: block;
-    }
-    49% {
-      display: block;
-    }
-    50% {
-      display: none;
-    }
-    74% {
-      display: none;
-    }
-    75% {
-      display: block;
-    }
-    99% {
-      display: block;
-    }
-    100% {
-      display: none;
-    }
-  }
-
-  @keyframes animate-image-glass-one {
-    0% {
-      display: block;
-    }
-    24% {
-      display: block;
-    }
-    25% {
-      display: none;
-    }
-    29% {
-      display: none;
-    }
-    30% {
-      display: block;
-    }
-    49% {
-      display: block;
-    }
-    50% {
-      display: none;
-    }
-    54% {
-      display: none;
-    }
-    55% {
-      display: block;
-    }
-    59% {
-      display: block;
-    }
-    60% {
-      display: none;
-    }
-    64% {
-      display: none;
-    }
-    65% {
-      display: block;
-    }
-    84% {
-      display: block;
-    }
-    85% {
-      display: none;
-    }
-    89% {
-      display: none;
-    }
-    90% {
-      display: block;
-    }
-    100% {
-      display: block;
+    50.01%, 100% {
+      opacity: 1;
+      visibility: visible;
     }
   }
 
   @keyframes animate-image-glass-two {
     0% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     24% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     25% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     29% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     30% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     49% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     50% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     54% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     55% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     59% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     60% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     64% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     65% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     84% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     85% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     89% {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     90% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     100% {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
   }
 </style>
