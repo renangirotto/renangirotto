@@ -9,9 +9,8 @@
       "Realizei orientação de carreira, com prática de 1-1s e acompanhamento de evolução de orientados.",
       "Organizei e participei de grupos de discussão de técnologia, voltados a criar cultura de boas práticas na empresa, uso de tecnologias e também organizei eventos como Code in the Dark e Hackathons."
     ],
-    "company": "Red Ventures",
+    "company": "R2 Ventures",
     "role": "Desenvolvedor Front-end Senior",
-    "technologies": "React, Next, Typescript, Vite, Node e SCSS.",
     "year": "2022 - atual"
   },
   {
@@ -25,7 +24,6 @@
     ],
     "company": "Construmarket",
     "role": "Desenvolvedor Front-end Pleno",
-    "technologies": "Angular, Typescript, SCSS, Azure.",
     "year": "2021 - 2021"
   },
   {
@@ -37,7 +35,6 @@
     ],
     "company": "Hive Solutions Cloud System",
     "role": "Desenvolvedor Front-end Pleno / Designer",
-    "technologies": "Vue, Jquery, SCSS, PHP.",
     "year": "2020 - 2020"
   },
   {
@@ -49,8 +46,7 @@
       "Realizei o design e desenvolvimento inicial de aplicações de intranet para bancos parceiros."
     ],
     "company": "Tesla Tecnologia e Comunicação",
-    "role": "Desenvolvedor Front-end Júnior",
-    "technologies": "Javascript, Jquery, LESS, SCSS.",
+    "role": "Desenvolvedor Front-end Junior",
     "year": "2017 - 2020"
   }
 ]
