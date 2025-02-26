@@ -8,6 +8,7 @@ export const LINKS = {
     bluesky: "https://bsky.app/profile/genanrirotto.bsky.social",
     github: "https://github.com/renangirotto",
     linkedin: "https://www.linkedin.com/in/renan-girotto/",
+    spotify: "https://open.spotify.com/playlist/70HIev12SC0HqPgze6lqyL?si=11e25308ecea4ce0"
   },
 };
 

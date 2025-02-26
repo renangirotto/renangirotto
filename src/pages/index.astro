@@ -1,8 +1,8 @@
 ---
 import {
+  Disc3 as IconDisc3,
   Github as IconGithub,
   Linkedin as IconLinkedin,
-  Twitter as IconTwitter,
 } from "lucide-astro";
 
 import BaseHead from "@/components/BaseHead.astro";
@@ -90,8 +90,8 @@ const year = new Date().getFullYear() - 2017;
           </figure>
         </GridBox>
 
-        <GridBox href={LINKS.social.bluesky} data-ui-grid-area="bluesky">
-          <IconTwitter />
+        <GridBox href={LINKS.social.spotify} data-ui-grid-area="spotify">
+          <IconDisc3 />
         </GridBox>
       </Grid>
     </main>
@@ -260,18 +260,18 @@ const year = new Date().getFullYear() - 2017;
       }
     }
 
-    [data-ui-grid-area="bluesky"] {
-      --_animation-delay-bluesky: 1s;
+    [data-ui-grid-area="spotify"] {
+      --_animation-delay-spotify: 1s;
 
-      grid-area: bluesky;
-      animation-delay: var(--_animation-delay-bluesky);
+      grid-area: spotify;
+      animation-delay: var(--_animation-delay-spotify);
 
       @container main-grid (width >= 768px) {
-        --_animation-delay-bluesky: 1s;
+        --_animation-delay-spotify: 1s;
       }
 
       @container main-grid (width >= 906px) {
-        --_animation-delay-bluesky: 0.9s;
+        --_animation-delay-spotify: 0.9s;
       }
     }
 
