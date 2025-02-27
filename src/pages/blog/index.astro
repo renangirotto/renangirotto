@@ -19,7 +19,7 @@ const posts = (await getCollection("blog")).sort(
   <body>
     <Header />
     <main>
-      <ul class="list">
+      <ul class="container">
         {
           posts.map((post) => (
             <li>
@@ -60,28 +60,20 @@ const posts = (await getCollection("blog")).sort(
 
   ul {
     list-style: none;
-    max-width: 640px;
-    margin-inline: auto;
 
     a {
       text-decoration: none;
     }
 
     li {
-      transition: transform 0.25s ease-in-out;
-
       &:not(:last-child) {
         margin-block-end: 64px;
       }
 
-      &:has(.new) {
-        .title {
-          margin-block-start: 4px;
-        }
-      }
-
       &:where(:hover) {
-        transform: scale(1.0075);
+        .title {
+          text-decoration: underline;
+        }
       }
     }
   }
