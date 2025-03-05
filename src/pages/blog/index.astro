@@ -24,10 +24,10 @@ const posts = (await getCollection("blog")).sort(
           posts.map((post) => (
             <li>
               <a href={`${ROUTES.blog}${post.slug}/`}>
-                <h3 class="title">{post.data.title}</h3>
                 <p class="time">
                   <FormattedDate date={post.data.pubDate} />
                 </p>
+                <h3 class="title">{post.data.title}</h3>
                 <p>{post.data.description}</p>
               </a>
             </li>

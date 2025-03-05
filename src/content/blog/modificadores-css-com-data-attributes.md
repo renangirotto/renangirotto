@@ -1,6 +1,6 @@
 ---
-title: 'Modificadores CSS com data-attribute.'
-description: 'Usando seletores CSS com data-attributes para modificar meus componentes.'
+title: 'Modificadores CSS com data-attribute'
+description: 'Como data-attributes podem auxiliar a criarmos modificadores de componentes de maneira simples.'
 pubDate: '03/05/2025'
 ---
 
