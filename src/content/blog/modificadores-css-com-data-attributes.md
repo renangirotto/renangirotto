@@ -1,5 +1,5 @@
 ---
-title: 'Modificadores CSS com data-attribute'
+title: 'Modificadores CSS com data-attributes'
 description: 'Como data-attributes podem auxiliar a criarmos modificadores de componentes de maneira simples.'
 pubDate: '03/05/2025'
 ---
