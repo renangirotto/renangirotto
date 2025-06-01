@@ -18,7 +18,10 @@ const year = new Date().getFullYear() - 2017;
 <!doctype html>
 <html lang="pt-br" class="is-theme-dark">
   <head>
-    <BaseHead title="Opa! Tudo bem?" description={SITE_DESCRIPTION} />
+    <BaseHead
+      title="Opa! Tudo bem? | Renan Girotto"
+      description={SITE_DESCRIPTION}
+    />
   </head>
   <body>
     <Header />
@@ -397,22 +400,26 @@ const year = new Date().getFullYear() - 2017;
   }
 
   @keyframes animate-image-table-one {
-    0%, 50% {
-    opacity: 1;
-    visibility: visible;
+    0%,
+    50% {
+      opacity: 1;
+      visibility: visible;
     }
-    50.01%, 100% {
+    50.01%,
+    100% {
       opacity: 0;
       visibility: hidden;
     }
   }
 
   @keyframes animate-image-table-two {
-    0%, 50% {
+    0%,
+    50% {
       opacity: 0;
       visibility: hidden;
     }
-    50.01%, 100% {
+    50.01%,
+    100% {
       opacity: 1;
       visibility: visible;
     }
