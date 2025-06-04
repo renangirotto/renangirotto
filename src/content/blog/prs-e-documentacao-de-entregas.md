@@ -19,7 +19,7 @@ Normalmente centralizamos demandas de negócio em ferramentas como Jira, Notion 
 
 Mesmo que o time utilize de estratégias de organização de épicos, stories, tasks e sprints, e crie tarefas bem descritas, com DoD (definition of done) e diversas categorias de atuação, ainda estamos a muitas camadas de distância de o que realmente vai ser implementado a nível de software.
 
-Esse distanciamento faz com que se crie uma **segregação de responsabilidades**, aonde o time de negócio só cuida de delegar e o time de desenvolvimento só cuida de atuar. E, ao atuar, cria um escopo de evolução de software que olha única e exclusivamente para tecnologia, não para o produto.
+Esse distanciamento faz com que se crie uma **segregação de responsabilidades**, onde o time de negócio só cuida de delegar e o time de desenvolvimento só cuida de atuar. E, ao atuar, cria um escopo de evolução de software que olha exclusivamente para tecnologia, não para o produto.
 
 Ao entregarmos nossas tasks vamos querer ao menos relacionar a demanda e o que foi produzido, mas a questão que fica é, **que valor estamos gerando para nossa documentação de entregas?** Um link para um punhado de alterações técnicas que, a partir do momento que a sprint acabar, será perdido em um mar de tasks completas que negócio talvez nunca mais olhe?
 
@@ -35,7 +35,7 @@ Entretanto, após começar a atuar em projetos extensos, com diversos produtos, 
 
 Pensando nisso, nos últimos 2 anos venho complementando os PRs em uma maneira a aproximar a evolução do produto e assim deixar mais rica a documentação de porque estavam acontecendo aquelas alterações, não somente no âmbito do software.
 
-Com isso eu estava criando uma documentação que não impactava apenas a mim, mas a todo o meu time técnico, que se precisasse rever mudanças, validar PRs e alinhar alterações com negócio teria um documento mostrando a motivação das alterações, as mudanças de software em si, aonde o produto estava no momento que fizemos o PR e para aonde nosso produto estava evoluindo.
+Com isso eu estava criando uma documentação que não impactava apenas a mim, mas a todo o meu time técnico, que se precisasse rever mudanças, validar PRs e alinhar alterações com negócio teria um documento mostrando a motivação das alterações, as mudanças de software em si, onde o produto estava no momento que fizemos o PR e para onde nosso produto estava evoluindo.
 
 ## Um PR modular e completo
 
@@ -53,7 +53,7 @@ Um exemplo desta sessão de descrição pode ser:
 
 ### Alterações realizadas
 
-Esta sessão é aonde tento trabalhar as reais alterações realizadas a nível de código, podendo detalhar de maneira mais macro, olhando para features, correções ou principais serviços, mas também podendo atuar de maneira mais granular em pontos que entendo que tenham mais impacto no código.
+Esta sessão é onde tento trabalhar as reais alterações realizadas a nível de código, podendo detalhar de maneira mais macro, olhando para features, correções ou principais serviços, mas também podendo atuar de maneira mais granular em pontos que entendo que tenham mais impacto no código.
 
 Geralmente faço em formato de lista, destacando no Markdown partes importantes de código, mas você pode fazer em um formato de texto narrativo se preferir:
 
