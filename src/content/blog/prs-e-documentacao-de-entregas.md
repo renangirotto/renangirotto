@@ -15,9 +15,9 @@ Neste artigo quero compartilhar um pouco sobre esta estratégia, os ganhos que t
 
 ## Tasks não documentam software
 
-Normalmente centralizamos demandas de negócio em ferramentas como Jira, Notion ou aquelas que tem propaganda em todos os vídeos do youtube. Essas ferramentas são nosso portal de tasks e por muitas vezes olhamos para ele apenas como uma grande lista de de TODOs.
+Normalmente centralizamos demandas de negócio em ferramentas como Jira, Notion ou aquelas que tem propaganda em todos os vídeos do youtube. Essas ferramentas são nosso portal de tasks e por muitas vezes olhamos para ele apenas como uma grande lista de TODOs.
 
-Mesmo que o time utilize de estratégias de organização de épicos, storias, tasks e sprints, e crie tarefas bem descritas, com DoD (definition of done) e diversas categorias de atuação, ainda estamos a muitas camadas de distância de o que realmente vai ser implementado a nível de software.
+Mesmo que o time utilize de estratégias de organização de épicos, stories, tasks e sprints, e crie tarefas bem descritas, com DoD (definition of done) e diversas categorias de atuação, ainda estamos a muitas camadas de distância de o que realmente vai ser implementado a nível de software.
 
 Esse distanciamento faz com que se crie uma **segregação de responsabilidades**, aonde o time de negócio só cuida de delegar e o time de desenvolvimento só cuida de atuar. E, ao atuar, cria um escopo de evolução de software que olha única e exclusivamente para tecnologia, não para o produto.
 
@@ -75,7 +75,7 @@ A ideia é deixar um comparativo de o que era esperado (um print do Figma por ex
 
 ### Tasks relacionadas
 
-Aqui queremos aproximar um pouco mais as alterações que estamos realizando com a demanda criada pelo negócio, relacionando nossas tasks, storias, épicos, enfim tudo e o que for necessário para mostrar o porque estamos fazendo as alterações, mas em uma perspectivas de produto.
+Aqui queremos aproximar um pouco mais as alterações que estamos realizando com a demanda criada pelo negócio, relacionando nossas tasks, stories, épicos, enfim tudo e o que for necessário para mostrar o porque estamos fazendo as alterações, mas em uma perspectivas de produto.
 
 Geralmente escrevo essa sessão no formato de lista, relacionando com links para os cards de tasks das aplicações que trabalhamos (Notion, Jira, etc):
 
