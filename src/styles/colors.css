@@ -1,19 +1,25 @@
 :root {
   --color-dark-comment-100: #7970a9;
+  --color-dark-cyan-100: #80ffea;
   --color-dark-foreground-100: #f8f8f2;
   --color-dark-green-100: #8aff80;
+  --color-dark-orange-100: #ffca80;
   --color-dark-pink-100: #ff80bf;
   --color-dark-purple-100: #9580ff;
   --color-dark-purple-400: #7762e1;
   --color-dark-selection-100: #454158;
   --color-dark-selection-200: #3b374e;
+  --color-dark-yellow-100: #ffff80;
 
   --color-light-background-100: #f5f5f5;
   --color-light-background-200: #ebebeb;
   --color-light-comment-100: #635d97;
+  --color-light-cyan-100: #036a96;
   --color-light-foreground-100: #1f1f1f;
   --color-light-green-100: #14710a;
+  --color-light-orange-100: #a34d14;
   --color-light-purple-100: #644ac9;
   --color-light-purple-200: #5a40bf;
   --color-light-pink-100: #a3144d;
+  --color-light-yellow-100: #846e15;
 }

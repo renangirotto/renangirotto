@@ -139,8 +139,12 @@ const { title, description, pubDate } = Astro.props;
   }
 
   article {
+    figure {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
     h1,
-    h2,
     h3 {
       color: light-dark(
         var(--color-light-pink-100),
@@ -155,8 +159,26 @@ const { title, description, pubDate } = Astro.props;
       }
     }
 
+    h2 {
+      color: light-dark(
+        var(--color-light-purple-100),
+        var(--color-dark-purple-100)
+      );
+    }
+
+    h3 {
+      color: light-dark(
+        var(--color-light-cyan-100),
+        var(--color-dark-cyan-100)
+      );
+    }
+
     hr {
       opacity: 0.25;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     p {
@@ -178,12 +200,26 @@ const { title, description, pubDate } = Astro.props;
         border-radius: 2px;
         font-size: 0.875rem;
         color: light-dark(
-          var(--color-light-pink-100),
-          var(--color-dark-pink-100)
+          var(--color-light-green-100),
+          var(--color-dark-green-100)
         );
         background: light-dark(
           var(--color-light-background-200),
           var(--color-dark-selection-200)
+        );
+      }
+
+      em {
+        color: light-dark(
+          var(--color-light-yellow-100),
+          var(--color-dark-yellow-100)
+        );
+      }
+
+      strong {
+        color: light-dark(
+          var(--color-light-orange-100),
+          var(--color-dark-orange-100)
         );
       }
     }
