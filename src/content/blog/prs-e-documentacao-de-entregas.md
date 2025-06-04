@@ -1,6 +1,6 @@
 ---
 title: 'Pull requests e documentação de entregas'
-description: 'Utlizando meus PRs para documentar a evolução do produto.'
+description: 'Utilizando meus PRs para documentar a evolução do produto.'
 pubDate: '06/03/2025'
 ---
 
