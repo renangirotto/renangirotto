@@ -2,7 +2,7 @@
 title: 'Pull requests e documentação de entregas'
 description: 'Utilizando meus PRs para documentar a evolução do produto.'
 pubDate: '06/03/2025'
-image: '/images/blog/posts/prs-e-documentacao-de-entregas/social.png'
+image: 'https://www.renangirotto.dev/images/blog/posts/prs-e-documentacao-de-entregas/social.png'
 ---
 
 PRs (pull requests) tem como objetivo documentar a evolução de nossas aplicações. Eles servem como um ponto de acompanhamento de o que está sendo modificado e muito provavelmente o que deve ser, ou não, aprovado por nossos pares.

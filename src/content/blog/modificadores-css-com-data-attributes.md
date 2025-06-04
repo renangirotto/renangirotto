@@ -2,7 +2,7 @@
 title: 'Modificadores CSS com data-attributes'
 description: 'Como data-attributes podem auxiliar a criarmos modificadores de componentes de maneira simples.'
 pubDate: '03/05/2025'
-image: '/images/blog/posts/modificadores-css-com-data-attributes/social.png'
+image: 'https://www.renangirotto.dev/images/blog/posts/modificadores-css-com-data-attributes/social.png'
 ---
 
 Já faz um tempo que tenho trabalhado usando `data-attributes` em meus seletores CSS, principalmente quando penso em modificadores de componentes.
