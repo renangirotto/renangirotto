@@ -21,9 +21,9 @@ Mesmo que o time utilize de estratégias de organização de épicos, stories, t
 
 Esse distanciamento faz com que se crie uma **segregação de responsabilidades**, onde o time de negócio só cuida de delegar e o time de desenvolvimento só cuida de atuar. E, ao atuar, cria um escopo de evolução de software que olha exclusivamente para tecnologia, não para o produto.
 
-Ao entregarmos nossas tasks vamos querer ao menos relacionar a demanda e o que foi produzido, mas a questão que fica é, **que valor estamos gerando para nossa documentação de entregas?** Um link para um punhado de alterações técnicas que, a partir do momento que a sprint acabar, será perdido em um mar de tasks completas que negócio talvez nunca mais olhe?
+Ao entregarmos nossas tasks vamos querer ao menos relacionar a demanda e o que foi produzido, mas a questão que fica é: **que valor estamos gerando para nossa documentação de entregas?** Um link para um punhado de alterações técnicas que, a partir do momento que a sprint acabar, será perdido em um mar de tasks completas que negócio talvez nunca mais olhe?
 
-Neste cenário estamos abrindo a mão de uma **documentação  de produtos para nós enquanto desenvolvedores**, e estamos criando o imaginário de entregar valor de uma documentação para negócio só porque um PO ou PM pode abrir a PR com as alterações, mesmo que possivelmente não entenda nada ali apresentado.
+Neste cenário estamos abrindo mão de uma **documentação de produtos para nós enquanto desenvolvedores**, e estamos criando o imaginário de entregar valor de uma documentação para negócio só porque um PO ou PM pode abrir a PR com as alterações, mesmo que possivelmente não entenda nada ali apresentado.
 
 A demanda do negócio, a motivação da mudança, ela precisa estar próxima do software que desenvolvemos, nós precisamos documentar o produto para desenvolvedores.
 
@@ -35,7 +35,7 @@ Entretanto, após começar a atuar em projetos extensos, com diversos produtos, 
 
 Pensando nisso, nos últimos 2 anos venho complementando os PRs em uma maneira a aproximar a evolução do produto e assim deixar mais rica a documentação de porque estavam acontecendo aquelas alterações, não somente no âmbito do software.
 
-Com isso eu estava criando uma documentação que não impactava apenas a mim, mas a todo o meu time técnico, que se precisasse rever mudanças, validar PRs e alinhar alterações com negócio teria um documento mostrando a motivação das alterações, as mudanças de software em si, onde o produto estava no momento que fizemos o PR e para onde nosso produto estava evoluindo.
+Com isso eu estava criando uma documentação que não impactava apenas a mim, mas a todo o meu time técnico, caso precisasse rever mudanças, validar PRs e alinhar alterações com negócio teria um documento mostrando a motivação das alterações, as mudanças de software em si, onde o produto estava no momento que fizemos o PR e para onde nosso produto estava evoluindo.
 
 ## Um PR modular e completo
 
@@ -65,9 +65,9 @@ A ideia não é descrever o que você fez no seu código de maneira literal. Afi
 
 ### Prints de apoio
 
-Esta sessão é muito relativa a o quanto o time de design é ativo no processo de validação de entregas, mas ajuda a documentar alterações que se tem uma noção de um maior impacto na experiência.
+Esta sessão é muito relativa ao quanto o time de design é ativo no processo de validação de entregas, mas ajuda a documentar alterações que se tem uma noção de um maior impacto na experiência.
 
-A ideia é deixar um comparativo de o que era esperado (um print do Figma por exemplo) com o que foi produzido (um print da web). Isso aqui não é um convite para os loucos do pixel perfect terem uma crise de ansiedade, é apenas uma forma de mostrar as alterações de maneira comparativa e documental:
+A ideia é deixar um comparativo do que era esperado (um print do Figma, por exemplo) com o que foi produzido (um print da web). Isso não é um convite para os loucos do pixel perfect terem uma crise de ansiedade, é apenas uma forma de mostrar as alterações de maneira comparativa e documental:
 
 <figure>
   <img src="/images/blog/posts/prs-e-documentacao-de-entregas/image-3.png" alt="Continuação da tela de criação de PR no Github. No corpo do PR temos um subtitulo para a área de prints de apoio seguido de dois prints de inteface do site dev.to, apenas para exemplo." />
@@ -75,7 +75,7 @@ A ideia é deixar um comparativo de o que era esperado (um print do Figma por ex
 
 ### Tasks relacionadas
 
-Aqui queremos aproximar um pouco mais as alterações que estamos realizando com a demanda criada pelo negócio, relacionando nossas tasks, stories, épicos, enfim tudo e o que for necessário para mostrar o porque estamos fazendo as alterações, mas em uma perspectivas de produto.
+Aqui queremos aproximar um pouco mais as alterações que estamos realizando com a demanda criada pelo negócio, relacionando nossas tasks, stories, épicos, enfim tudo que for necessário para mostrar porque estamos fazendo as alterações, mas em uma perspectivas de produto.
 
 Geralmente escrevo essa sessão no formato de lista, relacionando com links para os cards de tasks das aplicações que trabalhamos (Notion, Jira, etc):
 
@@ -83,13 +83,13 @@ Geralmente escrevo essa sessão no formato de lista, relacionando com links para
   <img src="/images/blog/posts/prs-e-documentacao-de-entregas/image-4.png" alt="Continuação da tela de criação de PR no Github. No corpo do PR temos um subtitulo para a área de tasks relacionadas seguido de uma lista de links para os cards de cada task." />
 </figure>
 
-E se a demanda vier de um scope change, a lendária mensagem no slack ou a popularmente conhecida pastelaria? Você pode ou ignorar essa sessão ou, como eu prefiro, colocar que foi um scope change solicitado por X pessoa. Não querendo apontar dedos nem nada, mas sempre bom documentar.
+E se a demanda vier de um scope change, a lendária mensagem no slack ou a popularmente conhecida pastelaria? Você pode ignorar essa sessão ou como eu prefiro: colocar que foi um scope change solicitado por X pessoa. Não querendo apontar dedos, mas é sempre bom documentar.
 
 ### Usando github? Utilize das labels
 
 O Github nos entrega diversos recursos para acompanharmos nossas PRs, uma delas são as labels. Geralmente crio labels relacionadas ao tipo de impacto que minha PR está causando ao repositório e me utilizo disso para acompanhar melhor como tem se desenrolado nossos lançamentos.
 
-Algo que gosto de fazer também é que ao trabalhar em monorepos crio labels para cada projeto e sempre que tenho uma alteração especifica de projeto utilizo dessa label para ajudar a também filtrar as PRs, algo como: `app-frontend`, `app-backend`, `app-dashboard`, etc.
+Algo que gosto de fazer também é que ao trabalhar em monorepos crio labels para cada projeto e sempre que tenho uma alteração específica de projeto utilizo dessa label para ajudar a também filtrar as PRs, algo como: `app-frontend`, `app-backend`, `app-dashboard`, etc.
 
 <figure>
   <img width="340px" src="/images/blog/posts/prs-e-documentacao-de-entregas/image-5.png" alt="Coluna de opções lateral do Github para relacionamento de assignees, labels e outras opções." />
@@ -103,4 +103,4 @@ Já trabalhei em lugares que PRs, quando fazíamos, eram bem simples, bem pobres
 
 Criar documentações, em um cenário de demandas em escopos mal planejados realmente se torna um desafio, se bem que ai o problema não está na questão da documentação e sim do planejamento. Termos a cultura de documentar nossa evolução precisa ser um consenso do time como todo, não apenas de uma área. O ganho ao longo do tempo tem se mostrado uma excelente forma de metrificar melhorias do produto, alinhar expectativas de entrega e criar uma melhor relação de documentação técnica com o negócio.
 
-Acredito leitor(a), que mesmo em um cenário que talvez você esteja atuando sozinho(a) em um produto, que ninguém realmente vá aprovar sues PRs, crie eles, faça com que essa rotina se torne algo **cultural no seu processo de desenvolvimento** e crie um histórico focado em lhe auxiliar no acompanhamento do produto que você desenvolve. Isso cria maturidade em você se tornar dono(a) do negócio que atua e agrega muito mais valor a suas documentações e entregas.
+Acredito leitor(a), que mesmo em um cenário que talvez você esteja atuando sozinho(a) em um produto, que ninguém realmente vá aprovar seus PRs, crie eles, faça com que essa rotina se torne algo **cultural no seu processo de desenvolvimento** e crie um histórico focado em lhe auxiliar no acompanhamento do produto que você desenvolve. Isso cria maturidade em você se tornar dono(a) do negócio que atua e agrega muito mais valor a suas documentações e entregas.
