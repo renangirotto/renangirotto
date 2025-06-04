@@ -29,7 +29,7 @@ A demanda do negócio, a motivação da mudança, ela precisa estar próxima do 
 
 ## O PR é também o histórico do produto
 
-Por muito tempo entendi que o PR (pull request) era uma documentação puramente técnica, eu deveria ali dar um contexto do meu código e minhas alterações, comentar as mudanças e/ou correções de maior impacto e relacionar pessoas para atuarem na sua aprovação.
+Por muito tempo entendi que o PR era uma documentação puramente técnica, eu deveria ali dar um contexto do meu código e minhas alterações, comentar as mudanças e/ou correções de maior impacto e relacionar pessoas para atuarem na sua aprovação.
 
 Entretanto, após começar a atuar em projetos extensos, com diversos produtos, regras de negócio, testes a/b e múltiplos fluxos, comecei a ver PRs mais como um processo automático de boa prática do que realmente uma documentação que me causava impacto ao longo do tempo, em como **meu produto estava evoluindo**, e não apenas como meu software estava mudando.
 
