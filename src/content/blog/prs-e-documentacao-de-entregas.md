@@ -8,7 +8,7 @@ PRs (pull requests) tem como objetivo documentar a evolução de nossas aplicaç
 
 Entretanto muitas vezes o PR ele é utilizado apenas para comunicarmos alterações técnicas e em muitos casos acaba ficando tão pobre em seu conteúdo que se tornam apenas uma rotina do processo de entrega de tasks, um simples balde de commits.
 
-Nos últimos 2 anos venho tendado criar, dentro dos meus processos de evolução e releases de aplicações, uma cultura de utilizar minhas PRs não apenas para documentar este avanço do software, mas para aproximar as modificações ali presentes com as necessidades de negócio, trazendo essa visão histórica da evolução de nossos produtos.
+Nos últimos 2 anos venho tentado criar, dentro dos meus processos de evolução e releases de aplicações, uma cultura de utilizar minhas PRs não apenas para documentar este avanço do software, mas para aproximar as modificações ali presentes com as necessidades de negócio, trazendo essa visão histórica da evolução de nossos produtos.
 
 Neste artigo quero compartilhar um pouco sobre esta estratégia, os ganhos que tive ao longo do tempo e como o processo de abrir e aprovar PRs ganhou uma nova responsabilidade.
 
