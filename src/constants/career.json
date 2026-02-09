@@ -30,10 +30,9 @@
   },
   {
     "achievements": [
-      "Design e desenvolvimento de dashboards para acompanhamento de entregas, gamificação e atuação de colaboradores para a Pepsico, utilizando VueJS, SCSS e PHP.",
-      "Design e desenvolvimento de plataforma de serviços de videomensagens com celebridades (projeto descontinuado), utilizando VueJS, SCSS e PHP.",
-      "Design e desenvolvimento de biblioteca de gráficos para VueJS com animações CSS em objetos SVG.",
-      "Design e desenvolvimento de aplicações de relatórios interativos com foco em campanhas de autoajuda e rotina saudável, utilizando VueJS, SCSS e API REST."
+      "Worked as UI designer and main developer for a multi brand application with focus on inventory status for mini markets and gas stations for PepsiCo, improving monitoring on re-stock deliveries and drivers goals. Developed with Vue.js, SCSS and Laravel.",
+      "Worked as main developer on a custom Vue.js graph library to handle dynamic data and improve better performance on heavy load dashboards graphs using SVG and SVG Animations.",
+      "Worked in the development of a video gifts app, where users could purchase birthday messages for relatives from Brazilian movie stars, soap operas actors and pop celebrities. Developed with HTML, jQuery, Axios, SCSS and Laravel."
     ],
     "company": "Hive Solutions Cloud System",
     "role": "Front-end Developer / UI Designer",
