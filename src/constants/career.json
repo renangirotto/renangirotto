@@ -5,7 +5,7 @@
       "Worked in the development of multiple applications for large college institutions in Brazil, with performative static sites generation (SSG), scalable CMS integrations on a multi-brand UI ecosystem, using NetxJS and yarn workspaces on a monorepo environment.",
       "Worked in the development of an A/B testing tool, integrating event monitoring using New Relic for experience performance based on the testing business rules.",
       "Worked in the implementation for CI/CD process using GitHub Actions and deploy notifications on Notion and Slacks channels.",
-      "Crafted multiple design systems libraries for partners brands, using Vite, React, Typescript and SCSS, with application of accessibility best practices (A11y) using E2E tests and unit tests with Cypress, Testing Library, Jest and Vitest.",
+      "Crafted multiple design systems libraries for partners brands, using Vite, React, Typescript and SCSS, with application of accessibility best practices (A11y) using E2E tests and unit tests with Cypress, Testing Library, Vitest and Storybook.",
       "Played a lead role in the implementation of new frameworks such as Astro for multi-brand static pages, focusing on high performative SEO and page load scores.",
       "Played a lead role in the development of a focused email tool and platform to improve our marketing campaigns using collected data from 3rd party tools like Google Tag Manager and Facebook Pixel.",
       "Played a lead role in the implementation of best practices for a developer experience documentation across projects and DevOps process, using GitHub Wiki, GitHub Projects and Astro Starlight.",
@@ -17,11 +17,12 @@
   },
   {
     "achievements": [
-      "Desenvolvimento de plataforma de cotação de materiais de construção com foco em pequenas obras para casas e comércios.",
-      "Coordenei a migração de tecnologia legada e defasada em Angular, otimizando a utilização de Angular Universal para SSR.",
-      "Coordenei a criação e otimização de um novo Design System e implementei melhorias nas requisições desnecessárias da API, impactando consideravelmente o SEO das páginas.",
-      "Realizei, junto ao time de design, processos de pesquisa comparativa de experiência do usuário e otimização de fluxo de cotação.",
-      "Auxiliei o time com documentação técnica, otimizando a rotina de PR e uso do Azure Wiki para centralizar processos e acompanhar a evolução da aplicação."
+      "Worked in the development of multiple e-commerce experiences for building materials with focus on home and small business projects, using Angular Universal, Typescript, Axios and SCSS, focusing on the best practices for SEO and accessibility (A11y).",
+      "Worked on the development of a management application for large-scale building projects, such as malls, hospitals, and convention centers, with a focus on improving communication with the engineering team, suppliers, and inventory.",
+      "Crafted a roadmap tool to help DIY workers to start small home projects, recommending better materials offers for the quantity needed for the project.",
+      "Played a lead role to improve SEO performance across multiple projects for the company.",
+      "Played a lead role to develop the new design system using Angular, Typescript and SCSS and user experience for the cross-sell services of the company across our partners brand.",
+      "Played a lead role at the implementation of the developer experience and main CI/CD process documentation for the front-end team using Azure Wiki."
     ],
     "company": "Construmarket",
     "role": "Front-end Developer",
