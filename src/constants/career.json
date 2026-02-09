@@ -1,22 +1,19 @@
 [
   {
     "achievements": [
-      "Desenvolvi o design system para o Banco Itaú utilizando React, TypeScript e SCSS, impactando múltiplas aplicações de aquisição digital de serviços.",
-      "Implementei o Storybook e criei documentações para uso de componentes, hooks e utils desenvolvidos pelo time.",
-      "Desenvolvi aplicações de aquisição digital de cursos EAD para o grupo Cogna, com projetos em Next.js, Yarn Workspace, SCSS e CMS com Storyblok.",
-      "Desenvolvi aplicação de aquisição de leads para o grupo XP Investimentos através de campanhas de conteúdo educativo sobre o setor financeiro, utilizando Astro, React, SCSS e Storyblok.",
-      "Desenvolvi uma ferramenta de email marketing focada na criação e otimização de campanhas, facilitando a administração dos times e o gerenciamento de mais de 1 milhão de emails mensais. Utilizei Gatsby e SCSS.",
-      "Desenvolvi bibliotecas de tracking para realização de testes A/B e monitoramento de fluxo de usuários, utilizando React e NodeJS para API.",
-      "Implementei melhorias de acessibilidade e SEO nos projetos, ajudando as equipes a alcançar as melhores práticas para os projetos de parceiros.",
-      "Contribuí para a criação e cultura de boas práticas de documentação técnica com Github Wiki, Github Projects, Bruno e Notion.",
-      "Utilizei Jest e Vitest para testes unitários, Cypress e Playwright para E2E e Github Actions para CI/CD.",
-      "Implementei o New Relic para monitoramento de eventos, fluxos e alertas de bugs em produção.",
-      "Orientei a carreira de colegas, acompanhando a rotina de desenvolvimento individual de profissionais júnior e auxiliando na criação de roadmaps de estudos.",
-      "Organizei eventos culturais na empresa, como Code in the Dark, apresentações de conteúdos técnicos e Hackathons."
+      "Worked in the development of digital acquisitions experiences for large financial institutions in Brazil, such as Itaú and Picpay, with focus on SEO performance, scalability and great user experience.",
+      "Worked in the development of multiple applications for large college institutions in Brazil, with performative static sites generation (SSG), scalable CMS integrations on a multi-brand UI ecosystem, using NetxJS and yarn workspaces on a monorepo environment.",
+      "Worked in the development of an A/B testing tool, integrating event monitoring using New Relic for experience performance based on the testing business rules.",
+      "Worked in the implementation for CI/CD process using GitHub Actions and deploy notifications on Notion and Slacks channels.",
+      "Crafted multiple design systems libraries for partners brands, using Vite, React, Typescript and SCSS, with application of accessibility best practices (A11y) using E2E tests and unit tests with Cypress, Testing Library, Jest and Vitest.",
+      "Played a lead role in the implementation of new frameworks such as Astro for multi-brand static pages, focusing on high performative SEO and page load scores.",
+      "Played a lead role in the development of a focused email tool and platform to improve our marketing campaigns using collected data from 3rd party tools like Google Tag Manager and Facebook Pixel.",
+      "Played a lead role in the implementation of best practices for a developer experience documentation across projects and DevOps process, using GitHub Wiki, GitHub Projects and Astro Starlight.",
+      "Mentored and helped to create careers roadmaps for Juniors peers, following their projects achievements and creating safe spaces to improve hard and soft skills during 1:1s and team meetings."
     ],
     "company": "R2 Ventures",
-    "role": "Desenvolvedor Front-end Senior",
-    "year": "2022 - atual"
+    "role": "Lead Front-end Developer",
+    "year": "2022 - currently"
   },
   {
     "achievements": [
@@ -27,8 +24,8 @@
       "Auxiliei o time com documentação técnica, otimizando a rotina de PR e uso do Azure Wiki para centralizar processos e acompanhar a evolução da aplicação."
     ],
     "company": "Construmarket",
-    "role": "Desenvolvedor Front-end Pleno",
-    "year": "2021 - 2021"
+    "role": "Front-end Developer",
+    "year": "2021 - 2022"
   },
   {
     "achievements": [
@@ -38,8 +35,8 @@
       "Design e desenvolvimento de aplicações de relatórios interativos com foco em campanhas de autoajuda e rotina saudável, utilizando VueJS, SCSS e API REST."
     ],
     "company": "Hive Solutions Cloud System",
-    "role": "Desenvolvedor Front-end Pleno / Designer",
-    "year": "2020 - 2020"
+    "role": "Front-end Developer / UI Designer",
+    "year": "2020 - 2021"
   },
   {
     "achievements": [
@@ -50,7 +47,7 @@
       "Design e desenvolvimento de intranet com integração multiusuário para o Banco BMG."
     ],
     "company": "Tesla Tecnologia e Comunicação",
-    "role": "Desenvolvedor Front-end Junior",
+    "role": "Jr. Front-end Developer",
     "year": "2017 - 2020"
   }
 ]

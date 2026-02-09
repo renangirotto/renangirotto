@@ -15,13 +15,10 @@ import { LINKS, ROUTES } from "@/consts";
 
 <header class="container">
   <nav>
-    <a class="title" href={ROUTES.home}>tudo bem?</a>
+    <a class="title" href={ROUTES.home}>hello!</a>
     <div class="links is-internal">
       <HeaderLink href={ROUTES.blog}>blog</HeaderLink>
-      <HeaderLink href={ROUTES.carrer}>carreira</HeaderLink>
-      <HeaderLink href={ROUTES.newsletter} target="_blank">
-        newsletter
-      </HeaderLink>
+      <HeaderLink href={ROUTES.career}>career</HeaderLink>
     </div>
     <div class="links is-social">
       <a
@@ -59,7 +56,7 @@ import { LINKS, ROUTES } from "@/consts";
       fechar <IconX />
     </button>
     <HeaderLinkMobile href={ROUTES.blog}> blog </HeaderLinkMobile>
-    <HeaderLinkMobile href={ROUTES.carrer}> carreira </HeaderLinkMobile>
+    <HeaderLinkMobile href={ROUTES.career}> career </HeaderLinkMobile>
     <HeaderLinkMobile href={ROUTES.newsletter} target="_blank">
       newsletter <IconExternalLink />
     </HeaderLinkMobile>
@@ -69,8 +66,8 @@ import { LINKS, ROUTES } from "@/consts";
     <HeaderLinkMobile href={LINKS.social.linkedin} target="_blank">
       linkedin <IconExternalLink />
     </HeaderLinkMobile>
-    <HeaderLinkMobile href={LINKS.social.spotify} target="_blank">
-      spotify <IconExternalLink />
+    <HeaderLinkMobile href={LINKS.social.qobuz} target="_blank">
+      qobuz <IconExternalLink />
     </HeaderLinkMobile>
   </dialog>
 

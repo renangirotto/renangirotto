@@ -2,22 +2,22 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 export const LINKS = {
   companies: {
-    r2ventures: 'https://www.linkedin.com/company/r2br/posts/?feedView=all',
+    r2ventures: "https://www.linkedin.com/company/r2br/posts/?feedView=all",
   },
   social: {
     github: "https://github.com/renangirotto",
     linkedin: "https://www.linkedin.com/in/renan-girotto/",
-    spotify: "https://open.spotify.com/playlist/70HIev12SC0HqPgze6lqyL?si=11e25308ecea4ce0",
-    substack: "https://renangirotto.substack.com/subscribe"
+    substack: "https://renangirotto.substack.com/subscribe",
+    qobuz: "https://open.qobuz.com/playlist/54379279",
   },
 };
 
 export const ROUTES = {
-  home: '/',
+  home: "/",
   blog: `/blog/`,
-  carrer: `/carreira/`,
+  career: `/career/`,
   newsletter: `${LINKS.social.substack}`,
-}
+};
 
 export const SITE_TITLE = "Renan Girotto";
 

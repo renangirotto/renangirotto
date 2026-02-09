@@ -68,7 +68,9 @@ const ElementTag = Astro.props.href ? "a" : "div";
     }
 
     p {
+      font-family: "Nanum Pen Script", cursive;
       font-size: var(--_text-font-size, 1rem);
+      /* transform: rotate(-2deg); */
 
       &:not(:last-of-type) {
         margin-block-end: 16px;
@@ -86,7 +88,7 @@ const ElementTag = Astro.props.href ? "a" : "div";
         var(--color-dark-pink-100)
       );
       line-height: 1;
-      transform: rotate(-3deg);
+      /* transform: rotate(-2deg); */
 
       &:is(a) {
         text-decoration-thickness: 2px;
