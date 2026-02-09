@@ -44,6 +44,7 @@ import { SITE_DESCRIPTION } from "../consts";
   .list-jobs {
     list-style: none;
     margin-block-start: 40px;
+    font-size: 1.125rem;
     line-height: 2;
 
     h3 {
@@ -71,6 +72,12 @@ import { SITE_DESCRIPTION } from "../consts";
     ul {
       padding-inline-start: 24px;
       margin-block: 24px;
+
+      > li {
+        &:not(:last-child) {
+          margin-block-end: 12px;
+        }
+      }
     }
   }
 </style>
