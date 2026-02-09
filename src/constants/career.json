@@ -40,11 +40,11 @@
   },
   {
     "achievements": [
-      "Desenvolvimento e otimização de campanhas de e-mail marketing com MJML e landing pages de eventos para PayPal e João Rock.",
-      "Desenvolvimento de aplicações B2C para marketing de leads e aquisição no setor automotivo para a Mercedes-Benz.",
-      "Desenvolvimento de SaaS para administração de contas e eventos no setor de condomínios.",
-      "Desenvolvimento de portais para acompanhamento em tempo real de viagens, serviços e produtos para o aeroporto de Florianópolis.",
-      "Design e desenvolvimento de intranet com integração multiusuário para o Banco BMG."
+      "Worked as main developer on the improvement of email marketing campaigns, developing a custom MJML tool to speed up the template creation of multi-brand emails, using bootstrap and jQuery.",
+      "Worked as main developer for an application to help landlords and building management companies to manage their ventures, using Vue.js, Axios, LESS and Bootstrap.",
+      "Worked in the development of landing pages with focus on e-commerce campaigns and promotions for brands like PayPal, Carrefour and Mercedes-Benz, using Bootstrap, jQuery, Axios and LESS.",
+      "Worked in the development of landing pages for B2C credit lines on the acquisition of new trucks for Mercedes-Benz stores in Brazil, with Bootstrap, jQuery and LESS.",
+      "Worked in the development of the main app for flying tracking and airport services for Florianópolis (Brazil) airport."
     ],
     "company": "Tesla Tecnologia e Comunicação",
     "role": "Jr. Front-end Developer",
