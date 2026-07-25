@@ -27,7 +27,7 @@ const posts = (await getCollection("blog")).sort(
         {
           posts.map((post) => (
             <li>
-              <a href={`${ROUTES.blog}${post.slug}/`}>
+              <a href={`${ROUTES.blog}${post.id}/`}>
                 <p class="time">
                   <FormattedDate date={post.data.pubDate} />
                 </p>

@@ -1,0 +1,32 @@
+---
+title: UI harness to a healthy agentic development
+description: Utilizando meus PRs para documentar a evolução do produto.
+pubDate: 2026-07-27
+image: https://www.renangirotto.dev/images/blog/posts/prs-e-documentacao-de-entregas/social.png
+---
+
+Since I began to work with SDD (Spec Driven Development) a feel months ago I've been trying to create a productivity workflow in the projects I'm currently working on.
+
+In the beginning it was really a pain and a lot of time I've got thinking "Am I doing something wrong?", "Are Figma MCP and Claude really capable to handle a good implementation?"
+
+Fast forward to today and I can say it was a little of both. Figma and Claude indeed got better on handling UI implementation, but the real deal was when I get the time to invest on my projects harness, context, and agent documentation narrative.
+
+<h2>Building UI for brands is different to just build a UI</h2>
+
+When the AI boom started is feels that front-end applications would be the most impacted because of how the speech to just go and use tailwind or Shadcn (or one of it million clones) was going to be easy.
+
+And I quick learned that this reality can be really different when you have a design system for a product that need to be consistent in the UI quality for a set of well defined style guides.
+
+So the first implementations were a nightmare.
+
+When my team started to implement SDD workflows the first executions of tasks with Claude and Figma MCP were clearly an experience. The agent could not understand our existing components or layouts in relation to my Figma files, the CSS Token usage was terrible low, it poorly handled assets such as SVGs or images and the UI consistency was really a mess.
+
+After some weeks fighting against the agent implementation I've searched for better approaches and understand more about the importance of good context, harness, rules files with Claude and how to create a good narrative Skills for the agent execution. Here, the game have changed.
+
+<h2>The Context and the AGENTS.md</h2>
+
+AGENTS.md is a context file dedicated to guide agents, on how to use your project. It's like the READEME.md file, but for AI.
+
+You don't need to give business context on this file, here we want to focus on the execution of your application, its dependencies, and development patterns.
+
+I like to divide this file on topics to explain my full work environment.

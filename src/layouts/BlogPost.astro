@@ -3,7 +3,6 @@ import type { CollectionEntry } from "astro:content";
 
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
@@ -40,7 +39,6 @@ const { title, description, pubDate, image } = Astro.props;
         <slot />
       </article>
     </main>
-    <Footer />
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -67,7 +65,7 @@ const { title, description, pubDate, image } = Astro.props;
               scrolledPercentage = (scrollDistance / scrollableHeight) * 100;
               scrolledPercentage = Math.max(
                 0,
-                Math.min(100, scrolledPercentage)
+                Math.min(100, scrolledPercentage),
               );
             } else {
               scrolledPercentage = 100;
@@ -91,6 +89,37 @@ const { title, description, pubDate, image } = Astro.props;
 </html>
 
 <style>
+  main {
+    p {
+      font-family: "Raleway Variable", sans-serif;
+      font-size: var(--text-page-font-size, 1.125rem);
+      font-weight: var(--text-page-font-weight, 500);
+      line-height: 1.8;
+
+      &:not(:last-child) {
+        margin-block-end: 32px;
+
+        &:has(+ h1),
+        &:has(+ h2),
+        &:has(+ h3),
+        &:has(+ .box-spoiler) {
+          margin-block-end: 64px;
+        }
+      }
+
+      [data-ui-text-big] {
+        font-weight: bold;
+        font-size: clamp(1.5rem, 3vw, 1.75rem);
+        line-height: 1.5;
+        color: var(--color-purple-200);
+      }
+
+      [data-ui-text-highlight] {
+        color: var(--color-purple-200);
+      }
+    }
+  }
+
   .header {
     &:not(:last-child) {
       margin-block-end: 3.5rem;
