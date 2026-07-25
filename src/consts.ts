@@ -21,4 +21,4 @@ export const ROUTES = {
 
 export const SITE_TITLE = "Renan Girotto";
 
-export const SITE_DESCRIPTION = "Olá, sou o Renan! Desenvolvedor front-end.";
+export const SITE_DESCRIPTION = "Hey, I'm Renan! Senior Front-end Developer.";
