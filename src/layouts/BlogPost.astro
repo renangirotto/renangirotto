@@ -177,7 +177,9 @@ const { title, description, pubDate, image } = Astro.props;
       overflow: hidden;
     }
 
-    h1 {
+    h1,
+    h2,
+    h3 {
       color: light-dark(
         var(--color-light-pink-100),
         var(--color-dark-pink-100)
@@ -195,20 +197,6 @@ const { title, description, pubDate, image } = Astro.props;
       &:not(:last-child) {
         margin-block: 3.5rem 0;
       }
-    }
-
-    h2 {
-      color: light-dark(
-        var(--color-light-purple-100),
-        var(--color-dark-purple-100)
-      );
-    }
-
-    h3 {
-      color: light-dark(
-        var(--color-light-cyan-100),
-        var(--color-dark-cyan-100)
-      );
     }
 
     hr {
