@@ -1,11 +1,22 @@
 import { defineConfig } from "astro/config";
+
+import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
+
+import AutoImport from "astro-auto-import";
 
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    AutoImport({
+      imports: ["./src/components/Callout.astro"],
+    }),
+    mdx(),
+    sitemap(),
+  ],
   markdown: {
+    processor: unified(),
     shikiConfig: {
       theme: "dracula",
     },

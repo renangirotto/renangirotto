@@ -105,6 +105,10 @@ const { title, description, pubDate, image } = Astro.props;
         &:has(+ .box-spoiler) {
           margin-block-end: 64px;
         }
+
+        &:has(+ .callout) {
+          margin-block-end: 48px;
+        }
       }
 
       [data-ui-text-big] {

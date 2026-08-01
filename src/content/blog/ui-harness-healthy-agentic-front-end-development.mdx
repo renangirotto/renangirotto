@@ -1,5 +1,5 @@
 ---
-title: UI harness to a healthy agentic development
+title: UI harness to a healthy agentic front-end development
 description: Utilizando meus PRs para documentar a evolução do produto.
 pubDate: 2026-07-27
 image: https://www.renangirotto.dev/images/blog/posts/prs-e-documentacao-de-entregas/social.png
@@ -25,9 +25,12 @@ When my team started to implement SDD workflows the first executions of tasks wi
 
 After some weeks fighting against the agent implementation I've searched for better approaches and understand more about the importance of good context, harness, rules files with Claude and how to create a good narrative Skills for the agent execution. Here, the game has changed.
 
+<Callout title="What are harnesses in agentic development?" text="We can consider harness as the infrastructure layer surrounding our AI model/agent. It's the combination of context, usable tools, how to produce expected outputs of code and what to do if something goes outside of the plan from the execution scope.
+" />
+
 <h2>The Context and the AGENTS.md</h2>
 
-AGENTS.md is a context file dedicated to guide agents on how to use your project. It's like the README.md file, but for AI.
+`AGENTS.md` is a context file dedicated to guide agents on how to use your project. It's like the README.md file, but for AI.
 
 You don't need to give business context on this file, here we want to focus on the execution of your application, its dependencies, and development patterns.
 

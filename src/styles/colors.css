@@ -4,6 +4,8 @@
   --color-dark-foreground-100: #f8f8f2;
   --color-dark-green-100: #8aff80;
   --color-dark-orange-100: #ffca80;
+  --color-dark-orange-100-opacity-15: #897267;
+  --color-dark-orange-100-opacity-25: #746362;
   --color-dark-pink-100: #ff80bf;
   --color-dark-purple-100: #9580ff;
   --color-dark-purple-400: #7762e1;
@@ -22,4 +24,6 @@
   --color-light-purple-200: #5a40bf;
   --color-light-pink-100: #a3144d;
   --color-light-yellow-100: #846e15;
+  --color-light-yellow-100-opacity-15: #c5be9d;
+  --color-light-yellow-100-opacity-25: #d1ccb5;
 }

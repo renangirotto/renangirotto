@@ -1,0 +1,67 @@
+---
+import { CircleHelp } from "lucide-astro";
+
+export interface Props {
+  title: string;
+  text: string;
+}
+
+const { title, text } = Astro.props;
+---
+
+<div class="callout">
+  <div class="callout-header">
+    <CircleHelp />
+    <p>{title}</p>
+  </div>
+  <div class="callout-body">
+    <p>{text}</p>
+  </div>
+</div>
+
+<style>
+  .callout {
+    padding-inline: 16px;
+    border-radius: 4px;
+    color: light-dark(
+      var(--color-light-yellow-100),
+      var(--color-dark-orange-100)
+    );
+    background: light-dark(
+      var(--color-light-yellow-100-opacity-25),
+      var(--color-dark-orange-100-opacity-25)
+    );
+  }
+
+  .callout-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-block: 16px;
+    border-block-end: 1px solid
+      light-dark(
+        var(--color-light-yellow-100-opacity-15),
+        var(--color-dark-orange-100-opacity-15)
+      );
+
+    svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    p {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+  }
+
+  .callout-body {
+    padding-block: 16px 24px;
+
+    p {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+</style>
