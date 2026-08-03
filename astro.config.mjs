@@ -10,7 +10,10 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   integrations: [
     AutoImport({
-      imports: ["./src/components/Callout.astro"],
+      imports: [
+        "./src/components/Accordion.astro",
+        "./src/components/Callout.astro",
+      ],
     }),
     mdx(),
     sitemap(),
