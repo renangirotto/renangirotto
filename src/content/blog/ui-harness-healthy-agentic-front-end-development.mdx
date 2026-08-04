@@ -13,7 +13,7 @@ Fast-forward to today and I can say it was a little of both. Figma and Claude in
 
 So, this article is a compilation of experiences from the past 4 to 5 months on my personal journey to understand how to create a healthy agentic development workflow for front-end applications.
 
-<h2>Building UI for brands is different from just building a UI.</h2>
+<ArticleTitle tag="h2">Building UI for brands is different from just building a UI.</ArticleTitle>
 
 When the AI boom started it felt that front-end applications would be the most impacted because of how the speech to just go and use **Tailwind** or **Shadcn** (or one of its million clones) was going to be easy.
 
@@ -25,13 +25,303 @@ When my team started to implement SDD workflows the first executions of tasks wi
 
 After some weeks fighting against the agent implementation I've searched for better approaches and understand more about the importance of good context, harness, rules files with Claude and how to create a good narrative Skills for the agent execution. Here, the game has changed.
 
-<Callout title="What are harnesses in agentic development?" text="We can consider harness as the infrastructure layer surrounding our AI model/agent. It's the combination of context, usable tools, how to produce expected outputs of code and what to do if something goes outside of the plan from the execution scope.
-" />
+<Callout
+  title="What are harnesses in agentic development?"
+  text="We can consider harness as the infrastructure layer surrounding our AI model/agent. It's the combination of context, usable tools, how to produce expected outputs of code and what to do if something goes outside of the plan from the execution scope.
+"
+/>
 
-<h2>The AGENTS.md context file</h2>
+<ArticleTitle tag="h2">The AGENTS.md context file</ArticleTitle>
 
 `AGENTS.md` is a context file that lives in the root of the repository, dedicated to guide agents on how to use your project. It's like the `README.md` file, but for AI.
 
 You don't need to give business context on this file, here we want to focus on the **execution of your application, its dependencies, existing code and development patterns**.
 
 I like to divide this file on topics to explain my full work environment.
+
+<Accordion title="Tech Stack">
+
+```markdown
+## Language & technology
+
+- **Primary languages:** TypeScript
+- **Runtime versions:** Node.js (no pin — see `package.json` peer deps)
+- **Package managers:** yarn
+- **Frameworks / load-bearing libs:** Next.js 16.2.6, React 18.2.0, TypeScript 6.0.2, TanStack Form, TanStack Query
+- **Linter:** [oxlint](https://oxc.rs/docs/guide/usage/linter)
+- **Formatter:** [oxfmt](https://github.com/nicolo-ribaudo/oxfmt)
+
+```
+
+</Accordion>
+
+<Accordion title="Package Scripts">
+
+```markdown
+## Package Scripts
+
+- **Build:** `yarn build:development` / `yarn build:staging` / `yarn build:production`
+- **Run (local dev):** `yarn start` (Express + Next.js dev server)
+- **Linter:** `yarn lint` (check), `yarn lint --fix` (auto-fix)
+- **Formatter:** `yarn fmt:check` (check), `yarn fmt` (auto-format)
+
+```
+
+</Accordion>
+
+<Accordion title="Rules">
+
+```markdown
+## Rules (enforced, not preferences)
+
+These are house rules. If a change violates one, fix the change — don't
+relax the rule. Rules live in [`.claude/rules/`](.claude/rules/); add a new
+rule by adding a new file and a row here.
+
+- **[COMPONENTS.md](.claude/rules/COMPONENTS.md)** — authoritative map of
+  every reusable component and layout in `src/components` and `src/layouts`.
+  Read before generating or editing any UI code.
+- **[ICONS.md](.claude/rules/ICONS.md)** — icon library reference: all SVG
+  icons in `public/svg/icons/`, filename→concept mapping. Always pick from
+  this list before creating a new icon.
+- **[TOKENS.md](.claude/rules/TOKENS.md)** — authoritative reference for all
+  CSS custom properties in `src/styles/tokens.scss`. Use tokens; never
+  hardcode color, spacing, or typography values.
+
+```
+
+</Accordion>
+
+<Accordion title="Skills and Slash Commands">
+
+```markdown
+## Skills and Slash Commands
+
+| Scaffold a new component or layout    | [`.claude/skills/add-component.md`](.claude/skills/add-component.md)                      |
+| Add a new SVG icon                    | [`.claude/skills/add-svg-icon.md`](.claude/skills/add-svg-icon.md)                        |
+| Convert a Figma frame to code         | [`.claude/skills/figma-to-code.md`](.claude/skills/figma-to-code.md)                      |
+| Give feedback on a finished agent run | [`.claude/skills/give-feedback/SKILL.md`](.claude/skills/give-feedback/SKILL.md)          |
+| Set up design-system components       | [`.claude/skills/setup-components/`](.claude/skills/setup-components/)                    |
+| Set up / sync CSS design tokens       | [`.claude/skills/setup-css-tokens/`](.claude/skills/setup-css-tokens/)                    |
+
+```
+
+</Accordion>
+
+<Accordion title="Verification Loop">
+
+A set of scripts to validate the environment after tasks
+
+```markdown
+## Verification loop
+
+Run locally before pushing (mirrors CI):
+
+```sh
+yarn fmt:check          # oxfmt — formatter check, must be clean
+yarn fmt                # oxfmt — auto-format (run before committing)
+yarn lint               # oxlint — zero errors required
+yarn lint --fix         # oxlint — auto-fix safe violations
+yarn build:development  # build sanity check (required in CI)
+
+```               
+
+</Accordion>
+
+<Accordion title="When Stuck">
+
+This one was a friend recommendation and I like the idea. It's a more narrative way to explain what to do if the agent is stuck on a decision.
+
+  ```markdown
+## When stuck
+
+- Workspace context: `../CLAUDE.md`
+- Org workflow docs: `https://github.com/my-org/ai-workflow/`
+- Components guide: [`.claude/rules/COMPONENTS.md`](.claude/rules/COMPONENTS.md)
+- Icons guide: [`.claude/rules/ICONS.md`](.claude/rules/ICONS.md)
+- Tokens guide: [`.claude/rules/TOKENS.md`](.claude/rules/TOKENS.md)
+- Next.js docs: `https://nextjs.org/docs`
+
+```               
+
+</Accordion>
+
+With this solid base of guidelines I've begun to improve the harness of my application and to have a more rich context for the agent to code.
+
+<ArticleTitle tag="h2">Harness to create a consistent output</ArticleTitle>
+
+Working with Claude we have a `.claude/rules/` folder, and initially I used it as my harness for code implementation. Other agents have a similar approach and with SDD workflows, like <a href="https://openspec.dev/" target="_blank">OpenSpec</a> you can create a live documentation for context and harness.
+
+But let's focus on the Claude rules. With them I like to create a narrative documentation on the follow structure:
+
+- A **title** and a **short explanation** of the usage of the rule
+- A scope of usage, for example, to limit folders context
+- How and when the rule should be updated
+- The rule itself
+
+Some examples:
+
+<Accordion title="COMPONENTS.md">
+
+  ```markdown
+# Component & Layout Guide
+
+This document is the authoritative reference for all reusable components and
+shared layout primitives. Read it before generating or editing any UI code so
+you pick the right building block instead of inventing a new one.
+
+**Scope:**
+
+- `src/components` — atomic, page-agnostic components
+- `src/layouts/Shared` — shared layout primitives reused across layouts
+
+**Out of scope (not tracked here):**
+
+- `src/layouts/<OtherLayout>/components/` — layout-private nested components
+- `src/layouts/<OtherLayout>/sections/` — layout-specific sections
+- Any other sub-folder inside a specific layout
+
+## Quick-reference map
+
+| Need to…                                | Use                |
+| --------------------------------------- | ------------------ |
+| Show collapsible Q&A items              | `Accordion`        |
+| Render a feature/benefit card with icon | `ActionCard`       |
+| Bind a form field with TanStack Form    | `InputField`       |
+
+---
+
+## Components (`src/components`)
+
+### Accordion
+
+**File:** `src/components/Accordion/index.tsx`
+
+Collapsible content block built on the native HTML `<details>`/`<summary>`
+elements. Uses a compound-component pattern.
+
+	
+import Accordion from "@/components/Accordion";
+
+<Accordion name="faq">
+  {" "}
+  {/* name groups items so only one opens at a time */}
+  <Accordion.Summary>Question text</Accordion.Summary>
+  <Accordion.Content>Answer text or any ReactNode</Accordion.Content>
+</Accordion>;
+	
+
+**Props — `Accordion`**
+
+| Prop       | Type                  | Required | Description                                            |
+| ---------- | --------------------- | -------- | ------------------------------------------------------ |
+| `children` | `string \| ReactNode` | yes      | Must include `Summary` and `Content` sub-components    |
+| `name`     | `string`              | no       | HTML `name` attribute; groups exclusive-open behaviour |
+
+Sub-components `Accordion.Summary` and `Accordion.Content` accept only
+`children: string | ReactNode`.
+
+The `<summary>` automatically renders a `+` / `−` toggle icon — do not add
+your own.
+
+  ```
+  
+</Accordion>
+
+<Accordion title="ICONS.md">
+
+  ```markdown
+# Icon Library
+
+Icons are SVG files located in `public/svg/icons/`. Each file can be
+imported and rendered as a JSX element. Use the list below to match a desired
+icon concept to the correct filename.
+
+## Available Icons
+
+| File                     | Description / Use case                                        |
+| ------------------------ | ------------------------------------------------------------- |
+| `arrow-left.svg`         | Back navigation, previous, left direction                     |
+| `calculator.svg`         | Calculator, simulator, economy tool                           |
+| `hand-shake.svg`         | Handshake , partnership, referral link                        |
+
+## Usage
+
+Import the SVG as a React component (Next.js / SVGR pattern):
+
+import ArrowRight from "@public/svg/icons/arrow-right.svg";
+
+// Render inline
+<ArrowRight />;
+
+  ```
+  
+</Accordion>
+
+Maybe you are asking yourself now, as I asked myself: Why do I need rules for components, icons or tokens, when the agent could simply read my files?
+
+<ArticleTitle tag="h2">I'ts all about narrative</ArticleTitle>
+
+I said that I like to create narrative rules, but actually every document for agent development should have a narrative for its context and code usage.
+
+Whenever you want to execute a task with an agent, unless you want to explore solutions or brainstorm ideas, you would like to be propositive, or in other words, to plan exactly what you want as an output.
+
+For example, let's say we ask for a prompt for the agent to create a new UI component from a Figma section link, without well defined rules. In the best scenario the agent will begin to map every file in the context of your application, using an unnecessary amount of tokens to understand: what is that file, if its content fits the proposed prompt and how it can use it.
+
+```mermaid
+graph LR
+    A[Claude Input] --> B[Figma MPC]
+    B --> C[Read Files]
+    C --> D[src/components]
+    D --> DA[ComponentA.jsx]
+    D --> DB[ComponentB.jsx]
+    D --> DC[ComponentC.jsx]
+    C --> E[src/styles/tokens.scss]
+    E --> EA["`token-a: #123
+    token-b: #456
+    token-c: #789
+    `"]
+    C --> F[public/icons]
+    F --> FA[icon-a.svg]
+    F --> FB[icon-b.svg]
+    F --> FC[icon-c.svg]
+  ```
+
+I say the best scenario because the agent could simply ignore the actual files and just create new code, without looking for existing implementations before.
+
+Now let's look on a well documented rules workflow.
+
+```mermaid
+graph LR
+    A[Claude Input] --> B[Figma MPC]
+    B --> C[Read AGENTS.md]
+    C --> D[COMPONENTS.md]
+    D --> DA["`ComponentA: He Does A
+    ComponentB: He does B
+    ComponentC: He does C
+    `"]
+    C --> E[TOKENS.md]
+    E --> EA["`
+    Border-radius Tokens:
+    token-a: 4px
+    token-b: 8px
+
+    Color Tokens:
+    token-c: #123
+    token-d: #456
+    `"]
+    C --> F[ICONS.md]
+    F --> FA["`
+    Icons list
+    icon-a: Explain the icon
+    icon-b: Explain the icon
+    
+
+    How to use the icon:
+    // other code
+    `"]
+```
+
+The difference of the approaches will affect the amount of used tokens, the time for the execution and more important the expected output, all because we are guiding the agent decision and context by our documentation rules.
+
+<ArticleTitle tag="h2">Skills: a starting point, a decision map and a update flow</ArticleTitle>

@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
+import ArticleTitle from "@/components/ArticleTitle.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -31,7 +32,7 @@ const { title, description, pubDate, image } = Astro.props;
     <main>
       <article id="article" class="container">
         <div class="header">
-          <h1 class="title">{title}</h1>
+          <ArticleTitle class="title">{title}</ArticleTitle>
           <div class="date">
             <FormattedDate date={pubDate} />
           </div>
@@ -91,26 +92,6 @@ const { title, description, pubDate, image } = Astro.props;
 <style>
   main {
     p {
-      font-family: "Raleway Variable", sans-serif;
-      font-size: var(--text-page-font-size, 1.125rem);
-      font-weight: var(--text-page-font-weight, 500);
-      line-height: 1.8;
-
-      &:not(:last-child) {
-        margin-block-end: 32px;
-
-        &:has(+ h1),
-        &:has(+ h2),
-        &:has(+ h3),
-        &:has(+ .box-spoiler) {
-          margin-block-end: 64px;
-        }
-
-        &:has(+ .callout) {
-          margin-block-end: 48px;
-        }
-      }
-
       [data-ui-text-big] {
         font-weight: bold;
         font-size: clamp(1.5rem, 3vw, 1.75rem);
@@ -181,77 +162,12 @@ const { title, description, pubDate, image } = Astro.props;
       overflow: hidden;
     }
 
-    h1,
-    h2,
-    h3 {
-      color: light-dark(
-        var(--color-light-pink-100),
-        var(--color-dark-pink-100)
-      );
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-weight: 800;
-    }
-
-    h2,
-    h3 {
-      &:not(:last-child) {
-        margin-block: 3.5rem 0;
-      }
-    }
-
     hr {
       opacity: 0.25;
     }
 
     img {
       max-width: 100%;
-    }
-
-    p {
-      &:not(:last-child) {
-        margin-block: 1.5rem;
-      }
-
-      a {
-        font-weight: 600;
-        color: light-dark(
-          var(--color-light-pink-100),
-          var(--color-dark-pink-100)
-        );
-      }
-
-      code {
-        padding-block: 3px;
-        padding-inline: 6px;
-        border-radius: 2px;
-        font-size: 0.875rem;
-        color: light-dark(
-          var(--color-light-green-100),
-          var(--color-dark-green-100)
-        );
-        background: light-dark(
-          var(--color-light-background-200),
-          var(--color-dark-selection-200)
-        );
-      }
-
-      em {
-        color: light-dark(
-          var(--color-light-yellow-100),
-          var(--color-dark-yellow-100)
-        );
-      }
-
-      strong {
-        color: light-dark(
-          var(--color-light-orange-100),
-          var(--color-dark-orange-100)
-        );
-      }
     }
 
     pre {
@@ -264,6 +180,10 @@ const { title, description, pubDate, image } = Astro.props;
           var(--color-dark-selection-200)
         );
       }
+    }
+
+    ul {
+      padding-inline-start: 16px;
     }
   }
 </style>

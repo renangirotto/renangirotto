@@ -1,0 +1,68 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<p class:list={["article-text", className]} {...rest}>
+  <slot />
+</p>
+
+<style>
+  .article-text {
+    font-size: var(--article-text-font-size, 1.125rem);
+    font-weight: var(--article-text-font-weight, 500);
+    font-weight: 500;
+    line-height: 1.8;
+
+    &:not(:last-child) {
+      margin-block-end: var(--article-text-margin-block-end, 32px);
+
+      &:has(+ h1),
+      &:has(+ h2),
+      &:has(+ h3),
+      &:has(+ .box-spoiler) {
+        margin-block-end: 64px;
+      }
+
+      &:has(+ .callout) {
+        margin-block-end: 48px;
+      }
+    }
+
+    a {
+      font-weight: 600;
+      color: light-dark(
+        var(--color-light-pink-100),
+        var(--color-dark-pink-100)
+      );
+    }
+
+    code {
+      padding-block: 3px;
+      padding-inline: 6px;
+      border-radius: 2px;
+      font-size: 0.875rem;
+      color: light-dark(
+        var(--color-light-green-100),
+        var(--color-dark-green-100)
+      );
+      background: light-dark(
+        var(--color-light-background-200),
+        var(--color-dark-selection-200)
+      );
+    }
+
+    em {
+      color: light-dark(
+        var(--color-light-yellow-100),
+        var(--color-dark-yellow-100)
+      );
+    }
+
+    strong {
+      color: light-dark(
+        var(--color-light-orange-100),
+        var(--color-dark-orange-100)
+      );
+    }
+  }
+</style>
