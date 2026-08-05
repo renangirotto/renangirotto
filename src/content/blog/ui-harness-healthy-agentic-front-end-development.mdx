@@ -1,6 +1,6 @@
 ---
 title: UI harness to a healthy agentic front-end development
-description: Utilizando meus PRs para documentar a evolução do produto.
+description: How narrative documentations are helping me with UI development in the AI era.
 pubDate: 2026-07-27
 image: https://www.renangirotto.dev/images/blog/posts/prs-e-documentacao-de-entregas/social.png
 ---
@@ -325,3 +325,108 @@ graph LR
 The difference of the approaches will affect the amount of used tokens, the time for the execution and more important the expected output, all because we are guiding the agent decision and context by our documentation rules.
 
 <ArticleTitle tag="h2">Skills: a starting point, a decision map and a update flow</ArticleTitle>
+
+For the majority of my tasks with agents I have a dedicated set of skills, whether to create UI components, API services, telemetry utils or tests.
+
+Like our rules the skills are narrative and have a clear step-by-step to follow. The skills are where I most relate the usage of rules and harness as guidelines for its execution.
+
+For example, in a `figma-compose-ui` skill we can add a step to understand which components, tokens or assets we already have in our codebase. This way the agent interpreting the Figma link will not create a new code output without looking at our existing code first.
+
+Here is an example of how a skill step can use our rules:
+
+<Accordion title="Context of existing code">
+
+```markdown
+## Step 1 — Load existing components, styles and design-system context
+
+Look for these rule files. The paths are relative to the project root:
+
+- `.claude/design-system-lib/rules/COMPONENTS.md` — documents available components from the `design-system` library.
+- `.claude/design-system-lib/rules/SCSS.md` — documents available SCSS utils from the `design-system` library, like container-queries, functions and reset.
+- `.claude/rules/COMPONENTS.md` — documents atomic components already built in this project.
+- `.claude/rules/ICONS.md` — documents the icon library in this project.
+- `.claude/rules/TOKENS.md` — available atomic CSS tokens on the project.
+
+```
+
+</Accordion>
+
+If the agent understands it's necessary to write a new code output it would be a good practice to guide it, not only to control the amount of generated code, but to explain how you expect the quality of this output to be.
+
+You can create those code guides on the **skill** or in atomic **rule** files:
+
+<Accordion title="How to handle new files">
+  
+  ```markdown
+## Step 2 — Generate the files
+
+Follow the same file set defined in `add-component/skills.md`:
+
+### `src/{resolvedPath}/index.tsx`
+
+- Import types from `./types`.
+- Import styles from `./styles.module.scss`.
+- Import `Image` from `next/image` only if images are used.
+- Build the JSX using the element map from Step 4.
+- For links (`<a>`), always add `target="_blank" rel="noopener noreferrer"`.
+
+### `src/{resolvedPath}/styles.module.scss`
+
+- Root class name follows the `camelCase` convention from Step 2.
+- All class names are `camelCase`.
+- Classes are listed in **alphabetical order**.
+- Sub-element classes are named relative to their logical parent (e.g. `.list`, `.listItem`, `.listItemLabel`). Only add nesting when it genuinely reflects a structural relationship.
+- Use modern pseudo-selectors where they reduce code: `:not()`, `:has()`, `:is()`, `:where()`, etc.
+
+```
+
+</Accordion>
+
+<Accordion title="HTML/JSX">
+  
+  ```markdown
+## Step 3 — Is expected implemented HTML/JSX to follow
+
+  - **Semantic HTML** — plain text, headings, links, lists, interactive controls → use native elements (`h1`–`h6`, `p`, `strong`, `em`, `a`, `button`, `ul`, `ol`, `details`, `dialog`, etc.).
+  - **Container** — a layout wrapper. Use the minimum number of `div` elements; flatten Figma's nested groups whenever the HTML does not need the extra layer.
+
+```
+
+</Accordion>
+
+<Accordion title="CSS Tokens">
+  
+  ```markdown
+## Step 4 — Resolve CSS tokens
+
+Open `src/styles/tokens.scss` and read all custom-property names defined there.
+
+For every style value found in Figma (color, spacing, typography, radius, shadow, etc.):
+
+1. **Token exists in `tokens.scss`** → use the CSS custom property: `var(--token-name)`.
+2. **Token does NOT exist in `tokens.scss`** → create the token on tokens.scss.
+   2.1. New tokens must be grouped by its properties and should be sorted alphabeticaly.
+   2.2. New color tokens that use hexadecimal, rgba colors or other color types shoudl be parsed to `oklch`.
+   2.3. Do not create tokens for css props like: size, width, height, display or position.
+
+DO NOT wrongly use css tokens on the components, if you don't find then on `tokens.scss` and it is not able to create on `tokens.scss` just put the value and comment. Always double check this.
+
+```
+
+</Accordion>
+
+<Accordion title="Acessibility (A11y)">
+  
+  ```markdown
+## Step 5 — Accessibility
+
+- **Interactive elements**: buttons and links must have a discernible accessible name (text content, `aria-label`, or `aria-labelledby`).
+- **Images**: every `<Image>` or `<img>` must have a descriptive `alt`. Decorative images get `alt=""` and `aria-hidden="true"`.
+- **Semantic structure**: use landmark elements (`<header>`, `<main>`, `<nav>`, `<footer>`, `<section>`, `<article>`) where appropriate instead of generic `<div>`; let the component context inform the right landmark.
+- **Heading hierarchy**: do not skip heading levels. If the Figma shows a large title, confirm the correct heading level in context before defaulting to `<h2>`.
+
+```
+
+</Accordion>
+
+As you can see we can stress a lot our skill steps to guide a mature and consistent output from our agent, focusing on accessibility, SEO and code patterns.
