@@ -31,6 +31,10 @@ const { title, text } = Astro.props;
       var(--color-light-yellow-100-opacity-25),
       var(--color-dark-orange-100-opacity-25)
     );
+
+    &:not(:last-child) {
+      margin-block-end: 48px;
+    }
   }
 
   .callout-header {

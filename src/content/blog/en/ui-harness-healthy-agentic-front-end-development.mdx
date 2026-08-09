@@ -9,7 +9,13 @@ Since I began to work with SDD (Spec Driven Development) a few months ago I've b
 
 In the beginning it was really a pain and a lot of time I've got thinking "Am I doing something wrong?", "Are Figma MCP and Claude really capable of handling a good implementation?"
 
-Fast-forward to today and I can say it was a little of both. Figma and Claude indeed got better at handling UI implementation, but the real deal was when I got the time to invest on my project's harness, context, and agent documentation narrative.
+Fast-forward to today and I can say it was a little of both. Figma and Claude indeed got better at handling UI implementation, but the real deal was when I got the time to invest on my project's **harness**, **context**, and agent **documentation narrative**.
+
+<Callout
+  title="What are harnesses in agentic development?"
+  text="We can consider harness as the infrastructure layer surrounding our AI model/agent. It's the combination of context, usable tools, how to produce expected outputs of code and what to do if something goes outside of the plan from the execution scope.
+"
+/>
 
 So, this article is a compilation of experiences from the past 4 to 5 months on my personal journey to understand how to create a healthy agentic development workflow for front-end applications.
 
@@ -24,12 +30,6 @@ So the first implementations were a nightmare.
 When my team started to implement SDD workflows the first executions of tasks with Claude and Figma MCP were clearly an experience. The agent could not understand our existing components or layouts in relation to my Figma files, the CSS Token usage was terribly low, it poorly handled assets such as SVGs or images and the UI consistency was really a mess.
 
 After some weeks fighting against the agent implementation I've searched for better approaches and understand more about the importance of good context, harness, rules files with Claude and how to create a good narrative Skills for the agent execution. Here, the game has changed.
-
-<Callout
-  title="What are harnesses in agentic development?"
-  text="We can consider harness as the infrastructure layer surrounding our AI model/agent. It's the combination of context, usable tools, how to produce expected outputs of code and what to do if something goes outside of the plan from the execution scope.
-"
-/>
 
 <ArticleTitle tag="h2">The AGENTS.md context file</ArticleTitle>
 
@@ -155,8 +155,8 @@ Working with Claude we have a `.claude/rules/` folder, and initially I used it a
 But let's focus on the Claude rules. With them I like to create a narrative documentation on the follow structure:
 
 - A **title** and a **short explanation** of the usage of the rule
-- A scope of usage, for example, to limit folders context
-- How and when the rule should be updated
+- A **scope of usage**, for example, to limit folders context
+- **How** and **when** the rule should be updated
 - The rule itself
 
 Some examples:
@@ -264,7 +264,7 @@ Maybe you are asking yourself now, as I asked myself: Why do I need rules for co
 
 I said that I like to create narrative rules, but actually every document for agent development should have a narrative for its context and code usage.
 
-Whenever you want to execute a task with an agent, unless you want to explore solutions or brainstorm ideas, you would like to be propositive, or in other words, to plan exactly what you want as an output.
+Whenever you want to execute a task with an agent, unless you want to explore solutions or brainstorm ideas, you would like to be **propositive**, or in other words, **to plan exactly what you want as an output**.
 
 For example, let's say we ask for a prompt for the agent to create a new UI component from a Figma section link, without well defined rules. In the best scenario the agent will begin to map every file in the context of your application, using an unnecessary amount of tokens to understand: what is that file, if its content fits the proposed prompt and how it can use it.
 
@@ -328,7 +328,7 @@ The difference of the approaches will affect the amount of used tokens, the time
 
 For the majority of my tasks with agents I have a dedicated set of skills, whether to create UI components, API services, telemetry utils or tests.
 
-Like our rules the skills are narrative and have a clear step-by-step to follow. The skills are where I most relate the usage of rules and harness as guidelines for its execution.
+Like our rules the skills are narrative and have a **clear step-by-step to follow**. The skills are where I most relate the usage of rules and harness as guidelines for its execution.
 
 For example, in a `figma-compose-ui` skill we can add a step to understand which components, tokens or assets we already have in our codebase. This way the agent interpreting the Figma link will not create a new code output without looking at our existing code first.
 

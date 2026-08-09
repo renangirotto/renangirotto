@@ -8,6 +8,13 @@ import AutoImport from "astro-auto-import";
 import mermaid from "astro-mermaid";
 
 export default defineConfig({
+  i18n: {
+    locales: ["en", "pt-br"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
   integrations: [
     AutoImport({
       imports: [

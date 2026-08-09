@@ -1,4 +1,6 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
 import {
   ExternalLink as IconExternalLink,
   Github as IconGithub,
@@ -10,14 +12,17 @@ import {
 import ButtonTheme from "@/components/ButtonTheme.astro";
 import HeaderLink from "@/components/HeaderLink.astro";
 import HeaderLinkMobile from "@/components/HeaderLinkMobile.astro";
+
 import { LINKS, ROUTES } from "@/consts";
+
+const blogHref = getRelativeLocaleUrl(Astro.currentLocale ?? "en", ROUTES.blog);
 ---
 
 <header class="container">
   <nav>
     <a class="title" href={ROUTES.home}>hello!</a>
     <div class="links is-internal">
-      <HeaderLink href={ROUTES.blog}>blog</HeaderLink>
+      <HeaderLink href={blogHref}>blog</HeaderLink>
       <HeaderLink href={ROUTES.career}>career</HeaderLink>
     </div>
     <div class="links is-social">
@@ -55,7 +60,7 @@ import { LINKS, ROUTES } from "@/consts";
     >
       fechar <IconX />
     </button>
-    <HeaderLinkMobile href={ROUTES.blog}> blog </HeaderLinkMobile>
+    <HeaderLinkMobile href={blogHref}> blog </HeaderLinkMobile>
     <HeaderLinkMobile href={ROUTES.career}> career </HeaderLinkMobile>
     <HeaderLinkMobile href={ROUTES.newsletter} target="_blank">
       newsletter <IconExternalLink />
