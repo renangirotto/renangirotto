@@ -15,7 +15,8 @@ const CustomTag = tag || "h1";
 
 <style>
   .article-title {
-    font-weight: 800;
+    font-family: "Outfit Variable", sans-serif;
+    font-weight: 700;
     color: light-dark(var(--color-light-pink-100), var(--color-dark-pink-100));
 
     &:not(:last-child) {
@@ -28,6 +29,10 @@ const CustomTag = tag || "h1";
       &:is(h2),
       &:is(h3) {
         margin-block: 56px 32px;
+      }
+
+      &:is(h2) {
+        font-size: 2rem;
       }
     }
   }

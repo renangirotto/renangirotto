@@ -51,7 +51,7 @@ const postsList = postsCollection.map((post) => {
                   <FormattedDate date={post.pubDate} />
                 </p>
                 <h3 class="title">{post.title}</h3>
-                <p>{post.description}</p>
+                <p class="description">{post.description}</p>
               </a>
             </li>
           ))
@@ -62,6 +62,10 @@ const postsList = postsCollection.map((post) => {
 </html>
 
 <style>
+  .description {
+    font-size: 1.125rem;
+  }
+
   .time {
     font-size: 0.875rem;
     &:not(:last-child) {
@@ -71,8 +75,9 @@ const postsList = postsCollection.map((post) => {
 
   .title {
     position: relative;
-    letter-spacing: 1.25px;
-    font-size: 1.75rem;
+    /* letter-spacing: 1.25px; */
+    font-family: "Outfit Variable", sans-serif;
+    font-size: 2.25rem;
     font-weight:;
     color: light-dark(var(--color-light-pink-100), var(--color-dark-pink-100));
 
