@@ -1,7 +1,7 @@
 ---
-title: UI harness to a healthy agentic front-end development
+title: Creating harness to a healthy front-end development with AI
 description: How narrative documentations are helping me with UI development in the AI era.
-pubDate: 2026-07-27
+pubDate: 2026-08-13
 image: https://www.renangirotto.dev/images/blog/posts/prs-e-documentacao-de-entregas/social.png
 ---
 
@@ -264,7 +264,7 @@ Maybe you are asking yourself now, as I asked myself: Why do I need rules for co
 
 I said that I like to create narrative rules, but actually every document for agent development should have a narrative for its context and code usage.
 
-Whenever you want to execute a task with an agent, unless you want to explore solutions or brainstorm ideas, you would like to be **propositive**, or in other words, **to plan exactly what you want as an output**.
+Whenever you want to execute a task with an agent, unless you want to explore solutions or brainstorm ideas, you would like **to plan exactly what you want as an output**.
 
 For example, let's say we ask for a prompt for the agent to create a new UI component from a Figma section link, without well defined rules. In the best scenario the agent will begin to map every file in the context of your application, using an unnecessary amount of tokens to understand: what is that file, if its content fits the proposed prompt and how it can use it.
 
@@ -430,3 +430,85 @@ DO NOT wrongly use css tokens on the components, if you don't find then on `toke
 </Accordion>
 
 As you can see we can stress a lot our skill steps to guide a mature and consistent output from our agent, focusing on accessibility, SEO and code patterns.
+
+<ArticleTitle tag="h2">Make a live documentation with an update flow</ArticleTitle>
+
+One of the better usage of the skills is that you can create dedicated steps on them to update existing documentations, such as rules, making sure that every new integration of code or process runs to be able to improve the context of the next agent.
+
+What that strategy our skills flow could look like this:
+
+```mermaid
+graph TD
+    A[Create Component SKILL.md] --> B[Step - 1]
+    B --> C[Step - 2]
+    C <--READ--> CA[COMPONENTS.md]
+    F --UPDATE--> CA
+    C ----> D[Step - 3]
+    D --> E[Last Step - 4]
+    E --> F[Call Update SKILL.md]
+    E --> EB[Component.jsx output]
+    
+```
+
+And an example of how we can can implement this in Skill steps could look like this:
+
+<Accordion title="create-component.md">
+
+```markdown
+## Step 6 - Create component base files
+
+Follow the same file set defined in `create-component-files.md` and in the `indext.tsx`:
+
+- Import types from `./types`.
+- Import styles from `./styles.module.scss`.
+- Import `Image` from `next/image` only if images are used.
+
+## Step 7 - Handle assets
+
+### Step 7.1 - SVG Icons
+
+If you are rendering a new SVG element inside the `Icon` component at Figma use the `add-svg-icon.md` with the following inputs:
+
+- Derive the icon name from the Figma Icon component prop, converting it to `kebab-case`.
+- If the icon name is unclear, ask the user before creating the file.
+
+
+```
+
+</Accordion>
+
+You can event create a reference of existing Skills inside rule files:
+
+<Accordion title="TOKENS.md">
+
+```markdown
+# CSS Tokens
+
+This document is the authoritative reference for all CSS custom properties
+available in `src/styles/tokens.css`.
+
+**Maintained by:** the `sync-css-tokens.md` skill. Run it whenever the tokens change, to keep this file in sync.
+
+```
+
+</Accordion>
+
+<ArticleTitle tag="h2">Next steps and overall tips for a healthy development workflow</ArticleTitle>
+
+With all the points I have shared about my experience of implementation for harness and context files on the projects I'm working on I want to wrap up this article by reinforcing a few points.
+
+First, and probably the most important, **be purposeful** in the usage of AI. Front-end development is straightforward work, normally we are being guided by design guides, and we already know what to expect as a correct output of UI. 
+
+It needs to match our design, if not, it's not doing the job. So create good narrative documents to a mature environment of work and a consistent usage of your tokens, assets, components, layouts and services.
+
+Understand that your context needs to evolve with the application, create self sustainable flows of decision for a well-structured live documentation and keep reviewing from time to time.
+
+Remember that **tools are only tools**. In many examples of this article I referenced *Claude Code* or *Claude Rules*, but it's only an example of tools my team is working with. I could have used examples with ChatGPT, DeepSeek or Kimi.
+
+Tools are nothing without a good plan of execution, understanding of concepts of AI development or a strong base of knowledge on the stack of the technology you're working with.
+
+And more than ever, look to have a good relationship with the design team you're working with. They're also being impacted like us on this new form of work with AI, and you both need to coordinate well planned strategies to develop, scale and maintain the famous "pixel perfect", accessible and optimized UI of your products. No AI agent will develop it alone.
+
+
+
+
